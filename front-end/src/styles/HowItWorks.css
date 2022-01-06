@@ -1,0 +1,43 @@
+.hiwContainer {
+  background-image: url("./media/background2.svg");
+  background-size: contain;
+  background-color: #c6dabe;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.listContainer {
+  display: flex;
+  width: 100%;
+  height: 55%;
+  align-items: center;
+  background-image: url("./media/liBackground.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+li {
+  width: 7em;
+  height: 7.5em;
+  overflow: scroll;
+  margin: .5em;
+  border: solid white 0.3em;
+  background: rgb(201, 226, 102, 0.7);
+  font-family: Comfortaa Bold;
+  color: #186e8b;
+  font-size: 1.7em;
+  display: flex;
+  padding: 10px;
+}
+ol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94%;
+  height: 45%;
+}
