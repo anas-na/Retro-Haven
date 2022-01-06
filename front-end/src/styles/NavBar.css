@@ -1,0 +1,116 @@
+.navContainer {
+  background-color: #186e8b;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  box-shadow: 0px 3px 7px #0a2900;
+}
+
+.links {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-evenly;
+  /* padding: 10px; */
+  /* padding: 0px, 10px, 0px, 10px; */
+}
+
+.navTitle {
+  color: white;
+  margin: 0;
+  font-family: Warung;
+  font-size: 2.4em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: Comfortaa;
+}
+
+a:hover {
+  color: #98bd89;
+  font-family: Comfortaa Bold;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: Comfortaa;
+  src: url("../styles/fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: Comfortaa Bold;
+  src: url("../styles/fonts/Comfortaa-Bold.ttf");
+}
+
+@font-face {
+  font-family: Warung;
+  src: url("../styles/fonts/Warung\ Kopi\ Bold.otf");
+}
+
+.logo {
+  max-height: 3.5em;
+  margin: 0;
+}
+
+nav .profile {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: 3px solid #eae6f6;
+}
+nav ul {
+  position: absolute;
+  top: 40px;
+  right: 45px;
+
+  border-radius: 10px;
+  display: flex;
+  width: 6em;
+}
+
+.dropdown {
+  display: none;
+  cursor: pointer;
+}
+
+nav #user-menu {
+  background: rgba(255, 255, 255, 0.7);
+  width: 8em;
+  box-shadow: 0px 3px 7px #0a2900;
+}
+
+.dropButtons {
+  display: flex;
+  flex-direction: column;
+  height: 7.3em;
+  justify-content: end;
+  align-items: center;
+  width: 5.5em;
+}
+
+/* .dropdownButton {
+  border-radius: 25px !important;
+  font-size: 1.4em !important;
+  width: 6em;
+  border: solid white 2px;
+  display: flex;
+  justify-content: center;
+} */
+
+.ddbContainer {
+  display: flex;
+  align-items: center;
+  height: 6em;
+  width: 10em;
+}
+
+.dropdownMenu {
+  padding-right: 20px;
+}
