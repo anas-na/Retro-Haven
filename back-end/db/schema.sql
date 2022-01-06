@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS eco_rent_dev;
-CREATE DATABASE eco_rent_dev;
+DROP DATABASE IF EXISTS retro_haven_dev;
+CREATE DATABASE retro_haven_dev;
 
-\c eco_rent_dev;
+\c retro_haven_dev;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
