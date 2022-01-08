@@ -1,6 +1,6 @@
 .singleItem {
-  width: 15em;
-  height: 20em;
+  width: 20em;
+  height: 25em;
   overflow: scroll;
   margin: 1em;
   border: solid #186e8b 0.3em;
@@ -55,10 +55,13 @@ h1 {
  a.itemName {
   max-width: 1em;
 }
+.description {
+  text-align: center;
+}
 
 img {
-  max-width: 8em;
-  padding: .5em;
+ max-width: 10em;
+ padding: .5em;
 }
 
 input.search {

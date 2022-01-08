@@ -30,13 +30,17 @@ const ItemListItem = ({ item }) => {
   
   return (
     <div className='singleItem' >
-      <div className='imageContainer'><img src={item.image} className='itemPhoto'/></div>
+      {/* <div className='imageContainer'><img src={item.image} className='itemPhoto'/></div> */}
+      <div className='description'>
       <Link to={`/items/${item.id}`} className='itemName'>{item.name}
-      <img src={item.photo} />
+      <br/>
       </Link>
+      <img src={item.photo} />
+      
       <h4>Category: {category[0].name}</h4>
       <h4>Price: ${item.price}</h4>
       <h4>Location: {item.location}</h4>
+      </div>
     </div>
   );
 };
