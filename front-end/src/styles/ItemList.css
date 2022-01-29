@@ -11,7 +11,7 @@
 }
 
 .singleItem:hover {
-  background-color: #c9e265;
+  background-color: #35244B;
   border: solid white 0.3em;
 }
 .itemName {
@@ -37,7 +37,7 @@
   min-height: 100vh;
   overflow: scroll;
   background-color: #c6dabe;
-  background-image: url("./media/background2.svg");
+  background-image: url("./media/homeBackground.svg");;
   background-attachment: fixed;
   background-size: contain;
   display: flex;

@@ -20,12 +20,12 @@ const getUser = async (id) => {
 };
 
 const createUser = async (newUser) => {
-    const { id, firstName, lastName, phoneNumber, dateOfBirth, address, email } = newUser;
+    const { id, firstName, lastName, phoneNumber, dateOfBirth, address, email, image } = newUser;
     console.log(newUser);
     try {
         const createdUser = await db.one(
-            `INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-            [id, firstName, lastName, phoneNumber, dateOfBirth, address, email]
+            `INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+            [id, firstName, lastName, phoneNumber, dateOfBirth, address, email, image]
         );
         return createdUser;
     } catch (error) {
@@ -35,9 +35,9 @@ const createUser = async (newUser) => {
 
 const updateUser = async (id, user) => {
     try {
-        const { first_name, last_name, phone_number, date_of_birth, address, email, password } = user;
-        const query = "UPDATE users SET first_name = $1, last_name = $2, phone_number = $3, date_of_birth = $4, address = $5, email = $6, password = $7 WHERE id = $8 RETURNING *";
-        const updatedUser = await db.one(query, [first_name, last_name, phone_number, date_of_birth, address, email, password, id]);
+        const { first_name, last_name, phone_number, date_of_birth, address, email, password, image } = user;
+        const query = "UPDATE users SET first_name = $1, last_name = $2, phone_number = $3, date_of_birth = $4, address = $5, email = $6, password = $7, image = $8 WHERE id = $9 RETURNING *";
+        const updatedUser = await db.one(query, [first_name, last_name, phone_number, date_of_birth, address, email, password, image, id]);
         return updatedUser;
     } catch (error) {
         return error;

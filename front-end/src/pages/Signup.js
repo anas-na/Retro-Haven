@@ -5,6 +5,7 @@ import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
+import blankPhoto from '../styles/media/blankUser.png'
 import axios from "axios";
 const API = apiURL();
 
@@ -25,6 +26,7 @@ const SignUp = () => {
       address,
       email,
       password,
+      image
     } = event.target.elements;
 
     const body = {
@@ -35,6 +37,7 @@ const SignUp = () => {
       address: address.value,
       email: email.value,
       password: password.value,
+      image: image.value
     };
     try {
       const res = await signUpFireBase(
@@ -86,6 +89,9 @@ const SignUp = () => {
         
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
+          {/* <label htmlFor="image">image</label> */}
+          <input type='hidden' name="image" type="tel" id="image" value='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' />
+          
         <input type="submit" className='button'/>
         </section>
        

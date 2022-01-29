@@ -19,13 +19,14 @@ const Profile = (props) => {
   const [loading, setLoading] = useState(true);
   
   const fbUser = useContext(UserContext);
-  console.log(user)
+  console.log(fbUser)
  
     const getUser = async () => {
       try {
         if(fbUser){
           const { uid } = fbUser;
-        let res = await axios.get(`${API}/users/${uid}`);
+        let res = await axios.get(`${API}/users/${fbUser.uid}`);
+        console.log(res)
         setUser(res.data);
         }
       } catch (error) {
@@ -36,7 +37,7 @@ const Profile = (props) => {
 
   const getItems = async () => {
     let allItems = await axios.get(`${API}/items`);
-    // console.log('getItems func',allItems.data)
+    console.log('getItems func',allItems.data)
     setItems(allItems.data);
   };
 
@@ -50,6 +51,7 @@ const Profile = (props) => {
       theItems = items.filter((item) => fbUser.uid === item.user_id);
       theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)
     
+      console.log(theItems)
     }
   }
 
@@ -82,6 +84,7 @@ const Profile = (props) => {
   if (loading) {
     return LoadingScreen()
   }
+  // console.log(user)
   return (
     <div>
       <h3>In Profile</h3>
@@ -90,18 +93,20 @@ const Profile = (props) => {
           ? "Welcome " + user.first_name + "!"
           : "You're not signed in! Please log in/sign up :)"}{" "}
       </h3>
-      <img src={user.img} alt={user.name} />
+      {/* <img src={user.img} alt={user.name} /> */}
+      <img src={user.image}/>
+      <h5>Name: {user.first_name} {user.last_name}</h5>
+      <h5> Email:{user.email}</h5>
       <h5>{user.email}</h5>
-      <h5>{user.address}</h5>
+      <h5>Adress: {user.address}</h5>
       <label htmlFor="userItems">My Items </label>
-
       <div className="userItems">
         {currentUserItems
           ? currentUserItems.map((item) => {
               return (
                 <div>
                   {/* display currentUser item names & reviews */}
-
+                  <h3>My Items:</h3>
                   <li>{item.name}</li>
                   <p>{item.review}</p>
                 </div>

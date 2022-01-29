@@ -1,7 +1,7 @@
 .hiwContainer {
-  background-image: url("./media/background2.svg");
+  background-image: url("./media/homeBackground.svg");;
   background-size: contain;
-  background-color: #c6dabe;
+  background-color: #35244B;
   height: 100vh;
   margin: 0;
   display: flex;
@@ -27,7 +27,7 @@ li {
   overflow: scroll;
   margin: .5em;
   border: solid white 0.3em;
-  background: rgb(201, 226, 102, 0.7);
+  background: #35244B;
   font-family: Comfortaa Bold;
   color: #186e8b;
   font-size: 1.7em;

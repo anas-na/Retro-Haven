@@ -39,7 +39,7 @@ function App() {
             <Route path="/myprofile" component={Profile} />
             <Route path="/editItems" component={Edit} />
             <AuthRoute path="notifications" component={Notifications} />
-            <Route path="/about" component={About} />
+            {/* <Route path="/about" component={About} /> */}
             <Route path="*" component={FourOFour} />
             
           </Switch>

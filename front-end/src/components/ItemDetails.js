@@ -122,7 +122,7 @@ const ItemDetails = () => {
           </div>
         </section>
       </div>
-      {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+      <BookingForm item_id={id} owner_id={item.user_id} />
 
       <div className="paymentContainer">
         <Calendar
