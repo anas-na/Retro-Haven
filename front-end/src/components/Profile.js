@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
+import "../styles/profile.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 // import useUser from "../hooks/useUser";
 import LoadingScreen from "../components/LoadingScreen";
 
@@ -85,34 +88,45 @@ const Profile = (props) => {
     return LoadingScreen()
   }
   // console.log(user)
+  console.log(currentUserItems)
   return (
     <div>
-      <h3>In Profile</h3>
+      <div className="profileTitle">
+      <h3>Your Profile:</h3>
       <h3>
         {user
           ? "Welcome " + user.first_name + "!"
           : "You're not signed in! Please log in/sign up :)"}{" "}
       </h3>
+      </div>
       {/* <img src={user.img} alt={user.name} /> */}
+      <div className="user">
       <img src={user.image}/>
-      <h5>Name: {user.first_name} {user.last_name}</h5>
-      <h5> Email:{user.email}</h5>
-      <h5>{user.email}</h5>
-      <h5>Adress: {user.address}</h5>
+      <div className="userInfo">
+      <p>Name: {user.first_name} {user.last_name}</p>
+      <p> Email:{user.email}</p>
+      <p>Phone Number: {user.phone_number}</p>
+      <p>Adress: {user.address}</p>
+      </div>
+      </div>
+      <div>
       <label htmlFor="userItems">My Items </label>
       <div className="userItems">
+        <h3>My Items:</h3>
         {currentUserItems
           ? currentUserItems.map((item) => {
               return (
-                <div>
+                <div className="usersItems">
+                  
                   {/* display currentUser item names & reviews */}
-                  <h3>My Items:</h3>
-                  <li>{item.name}</li>
+                  <li><h6>{item.name}</h6>
+                      <img src={item.photo}/></li> 
                   <p>{item.review}</p>
                 </div>
               );
             })
           : "No Items yet! Go ahead and list one to get started!"}
+      </div>
       </div>
       {/* <button onClick={handleEdit}>Edit</button> */}
     </div>
