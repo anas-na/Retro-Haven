@@ -5,9 +5,15 @@
 
 .signupForm {
     width: 27em;
+    height: 10em;
     
 }
 
 input#dateOfBirth {
     width: 29em;
 }
+
+.formContainer {
+    background-color: purple;
+}
+

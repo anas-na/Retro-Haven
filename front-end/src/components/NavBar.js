@@ -1,17 +1,35 @@
 import { NavLink, Link, useHistory } from "react-router-dom";
 import "../styles/NavBar.css";
-import logo from '../styles/media/EcoRent.svg'
+import logo from '../styles/media/Retro.svg'
 import blankPhoto from '../styles/media/blankUser.png'
 import useUser from "../hooks/useUser";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../providers/UserProvider";
+import axios from "axios";
+import { apiURL } from "../util/apiURL";
+
+const API = apiURL();
 
 const NavBar = () => {
   
-  const user = useContext(UserContext);
+  const fbUser = useContext(UserContext);
   const { logOut } = useUser();
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const getUser = async () => {
+    try {
+      if(fbUser){
+        const { uid } = fbUser;
+      let res = await axios.get(`${API}/users/${fbUser.uid}`);
+      console.log(res.data)
+      setUser(res.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   let history = useHistory()
 
   const navigateTo = () => history.push('/myprofile')
@@ -28,8 +46,15 @@ const NavBar = () => {
   const handleDropdown = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 750);
+    getUser()
+  }, [fbUser]);
+  if (fbUser) {
+    console.log(fbUser)
 
-  if (user) {
     return (
       <nav>
         <div className="navContainer">
@@ -86,7 +111,7 @@ const NavBar = () => {
             </div>
           <section className="dropdownMenu">
             <img
-              src={blankPhoto}
+              src={user.image}
               alt="user"
               className="profile"
               onClick={handleDropdown}

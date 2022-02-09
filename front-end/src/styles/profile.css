@@ -1,0 +1,46 @@
+.profile {
+    height: 100vh;
+  width: 100%;
+  /* background-image: url("./media/homeBackground.svg"); */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-color: #35244B;
+}
+
+.profileTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user {
+    display: flex;
+    justify-content: space-around;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.userInfo p {
+    color: white;
+    margin-top: 10px;
+}
+
+/* .userItems li {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+} */
+
+.userItems h6 {
+    text-align: center;
+}
+
+.usersItems {
+    display: flex;
+    flex-direction: row;
+}

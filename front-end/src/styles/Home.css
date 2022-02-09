@@ -3,7 +3,7 @@
   width: 100%;
   background-image: url("./media/homeBackground.svg");
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
 

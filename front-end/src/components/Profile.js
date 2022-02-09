@@ -1,11 +1,18 @@
-import axios from "axios";
 import { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { UserContext } from "../providers/UserProvider";
 import "../styles/profile.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 // import useUser from "../hooks/useUser";
 import LoadingScreen from "../components/LoadingScreen";
+import { storage } from "../services/Firebase";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 import { apiURL } from "../util/apiURL";
 
@@ -20,7 +27,7 @@ const Profile = (props) => {
   const [user, setUser] = useState([]);
   const [currentUserItems, setCurrentUserItems] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+
   const fbUser = useContext(UserContext);
   console.log(fbUser)
  
@@ -57,7 +64,10 @@ const Profile = (props) => {
       console.log(theItems)
     }
   }
+  
 
+  
+  
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -87,10 +97,9 @@ const Profile = (props) => {
   if (loading) {
     return LoadingScreen()
   }
-  // console.log(user)
   console.log(currentUserItems)
   return (
-    <div>
+    <div className="profile">
       <div className="profileTitle">
       <h3>Your Profile:</h3>
       <h3>
@@ -110,7 +119,7 @@ const Profile = (props) => {
       </div>
       </div>
       <div>
-      <label htmlFor="userItems">My Items </label>
+      <label htmlFor="userItems"></label>
       <div className="userItems">
         <h3>My Items:</h3>
         {currentUserItems
@@ -119,8 +128,9 @@ const Profile = (props) => {
                 <div className="usersItems">
                   
                   {/* display currentUser item names & reviews */}
-                  <li><h6>{item.name}</h6>
-                      <img src={item.photo}/></li> 
+                  <p className="postedItems"><h6>{item.name}</h6>
+                      <img src={item.photo}/></p> 
+                      
                   <p>{item.review}</p>
                 </div>
               );

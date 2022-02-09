@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@thumbtack/thumbprint-react": "^14.4.1",
     "axios": "^0.21.1",
     "firebase": "^9.1.0",
     "google-map-react": "^2.1.10",
