@@ -18,7 +18,7 @@ app.use("/items", itemsController);
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("EcoRent Landing");
+  res.send("RetroHaven Landing");
 });
 app.post('/pay', async (req, res) => {
   try {
