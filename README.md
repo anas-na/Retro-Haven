@@ -1,21 +1,16 @@
-## Welcome to EcoRent!
+## Welcome to the Retro Haven Repo!
 
 ## Live App:
 
 ```
-https://ecorent.netlify.app
+https://retro-haven.netlify.app
 ```
 
 ## Heroku:
 
 ```
-https://still-forest-94069.herokuapp.com
+https://retrohaven.herokuapp.com
 ```
 
 
-## Team Members
 
-* Adam Tahiri
-* Anas Nahil
-* Carina Taveras
-* Demi Jobi
