@@ -90,7 +90,7 @@ export default function CheckoutForm(props) {
         <h4 className="d-flex justify-content-between align-items-center mb-3"></h4>
         <h6>Pay with card</h6>
         <form onSubmit={handleSubmit}>
-          <h1>Send Message To Renter</h1>
+          <h1>Send Message To Seller</h1>
         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
           <div className="row">
             <label htmlFor="cc-name">Name on card</label>

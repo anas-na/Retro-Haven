@@ -41,3 +41,20 @@ ol {
   width: 94%;
   height: 45%;
 }
+
+@media (max-width: 648px){
+  .hiwContainer {
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+  }
+  ol > li {
+    height: 10em;
+    width: 7em;
+    
+  }
+}
