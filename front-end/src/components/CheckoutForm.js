@@ -13,7 +13,10 @@ import { UserContext } from "../providers/UserProvider";
 import { db } from "../services/Firebase";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
+
+
 const API = apiURL();
+
 
 export default function CheckoutForm(props) {
   const { item, totalPrice } = props;
@@ -29,6 +32,7 @@ export default function CheckoutForm(props) {
   const elements = useElements();
 
   const handleSelectedItem = async (id) => {
+
     let res = await axios.get(`${API}/items/${id}`);
     // setSelectedItemDetails(res.data);
     return res.data
@@ -36,7 +40,7 @@ export default function CheckoutForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const cardElem = elements.getElement(CardNumberElement)
     if (!stripe || !elements) {
       return;
     }
@@ -51,41 +55,40 @@ export default function CheckoutForm(props) {
         renter_id: selectedItemDetails.user_id,
         item_id: props.item_id,
         message: message,
-        start_date: props.startDate,
-        end_date: props.endDate,
         total_price: totalPrice,
       });
-      props.setPaymentCompleted(true);
+      // props.setPaymentCompleted(true);
     } catch (error) {
       console.log(error);
     }
-
-    //   const paymentMethodObj = {
-    //     type: 'card',
-    //     card: elements.getElement(CardNumberElement),
-    //     billing_details: {
-    //       name,
-    //       email
-    //     },
-    //   };
-    //   const paymentMethodResult = await stripe.createPaymentMethod(paymentMethodObj);
-
-    //   stripePaymentMethodHandler({
-    //     result: paymentMethodResult,
-    //     price: item.price
-    //   }, handleResponse);
+    console.log(elements)
+      const paymentMethodObj = {
+        type: 'card',
+        card: cardElem,
+        billing_details: {
+          name,
+          email
+        },
+      };
+      const paymentMethodResult = await stripe.createPaymentMethod(paymentMethodObj);
+// // 
+      stripePaymentMethodHandler({
+        result: paymentMethodResult,
+        price: item.price
+      }, handleResponse);
   };
-  //   callback method to handle the response
-  // const handleResponse = (response) => {
-  //   setLoading(false);
-  //   if (response.error) {
-  //     setErrorMsg("error happening");
-  //     return;
-  //   }
-  //   // props.setPaymentCompleted(response.success ? true : false);
-  // };
+//     // callback method to handle the response
+  const handleResponse = (response) => {
+    setLoading(false);
+    if (response.error) {
+      setErrorMsg("error happening");
+      return;
+    }
+    props.setPaymentCompleted(response.success ? true : false);
+  };
 
   return (
+   
       <section className="checkoutContainer">
         <h4 className="d-flex justify-content-between align-items-center mb-3"></h4>
         <h6>Pay with card</h6>
@@ -114,7 +117,7 @@ export default function CheckoutForm(props) {
               />
             </div>
           </div>
-
+   
           <div className="row">
             <label htmlFor="cc-number">Card Number</label>
             <div className="col-md-12 mb-3">
@@ -150,5 +153,6 @@ export default function CheckoutForm(props) {
           {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
         </form>
       </section>
+   
   );
 }

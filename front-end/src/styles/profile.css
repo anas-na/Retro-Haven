@@ -17,12 +17,12 @@
 
 .user {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
 .userInfo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .userInfo p {
@@ -44,3 +44,4 @@
     display: flex;
     flex-direction: row;
 }
+

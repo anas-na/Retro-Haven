@@ -13,8 +13,10 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const API = apiURL();
 const stripePromise = loadStripe(
-  "pk_test_51JTu2IHSic55neYrUSAPj8GK2fh3EzUPuYv4hmmyV6k2eIHXBHyj8s9bgsc9KwoUfH6zvPXaYPANVWLwtIBoEFfZ00Q2Gew3cj"
+  "pk_test_51JTu2IHSic55neYrudHQjov0AEp1TxciR5lLveuKsW1O14d1XuYrtF2B7dgJxtk1sfO4tzHFTqFtExUtaag6ZE3x00HJpDxEdA"
+  
 );
+
 
 const successMessage = () => {
   return (
@@ -28,7 +30,7 @@ const successMessage = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
         />
       </svg>
@@ -46,20 +48,9 @@ const ItemDetails = () => {
   const { id } = useParams();
 
   console.log(item)
-  const totalReservationPrice = () => {
-    if (startDate && endDate) {
-      let start = startDate.getDate();
-      let end = endDate.getDate();
-      const total = (end - start) * item.price;
-      if (total === 0) {
-        return item.price;
-      }
-      return total;
-    } else {
-      return item.price;
-    }
-  };
-  const totalPrice = totalReservationPrice();
+  console.log(item.price)
+  
+  const totalPrice = item.price;
 
   const getItem = async () => {
     try {
@@ -118,7 +109,7 @@ const ItemDetails = () => {
           </div>
           <div className="detailLine">
             <h6>Location:</h6> {item.location}
-            <GoogleMap coordinates={coordinates} className="mapsContainer" />
+            {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
           </div>
         </section>
       </div>
@@ -140,11 +131,10 @@ const ItemDetails = () => {
               item={item}
               item_id={id}
               setPaymentCompleted={setPaymentCompleted}
-              startDate={startDate}
-              endDate={endDate}
+
               className="paymentContainer"
             />
-          </Elements>
+            </Elements>
         )}
       </div>
     </div>

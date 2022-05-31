@@ -4,8 +4,7 @@ const express = require("express");
 const usersController = require("./Controllers/usersController");
 const categoriesController = require("./Controllers/categoriesController");
 const itemsController = require("./Controllers/itemsController");
-const stripe = require("stripe")("sk_test_51JTu2IHSic55neYrlTuEUpp0pp67dZ1r7tSfmTPmXXyx7WGdwCxIG3VsNzrLF0lKH9RvlO7zZ0iOchYRvNqIGpLJ00oQrUT0Md")
-
+const stripe = require("stripe")("sk_test_51JTu2IHSic55neYrNBT2tDxQdouyAgR5rMl2DOq0S6807T9v4gIVoAtb3E7l4ucN02QIqFmwPu001ZzLWvm1t12J00xG8Y0gSl")
 // CONFIGURATION
 const app = express();
 
