@@ -35,7 +35,9 @@ CREATE TABLE items (
     description TEXT,
     price INT,
     location TEXT,
-    user_id VARCHAR
+    listedby_id VARCHAR,
+    boughtby_id VARCHAR,
+    sold boolean Default False
 );
 
 

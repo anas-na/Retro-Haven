@@ -2,7 +2,7 @@ const db = require("../db/dbConfig");
 
 const getAllItems = async () => {
     try {
-        const allItems = await db.any("SELECT * FROM items");
+        const allItems = await db.any("SELECT * FROM items WHERE sold = False");
         return allItems;
     } catch (error) {
         console.log(error);
@@ -19,11 +19,11 @@ const getItem = async (id) => {
 };
 
 const createItem = async (newItem) => {
-    const { category_id, photo, name, description, price, location, user_id } = newItem;
+    const { category_id, photo, name, description, price, location, listedby_id } = newItem;
     try {
         const createdItem = await db.one(
-            `INSERT INTO items( category_id, photo, name, description, price, location, user_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-            [category_id, photo, name, description, price, location, user_id]
+            `INSERT INTO items( category_id, photo, name, description, price, location, listedby_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+            [category_id, photo, name, description, price, location, listedby_id]
         );
         return createdItem;
     } catch (error) {

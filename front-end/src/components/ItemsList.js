@@ -36,6 +36,7 @@ const ItemsList = () => {
   useEffect(() => {
     fetchItems();
   }, []);
+  console.log(items)
 
   return (
     <div>
