@@ -18,7 +18,7 @@ const BookingForm = ({ owner_id, item_id}) => {
         e.preventDefault()
         try {
             addDoc(collection(db, "bookings"), {
-                user_id: user.uid,
+                listedby_id: user.uid,
                 item_details: selectedItemDetails,
                 item_id: item_id,
                 message: message,

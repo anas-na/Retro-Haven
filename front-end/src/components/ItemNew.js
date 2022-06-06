@@ -48,7 +48,7 @@ import {
     price: 0.0,
     location: "",
     photo:'',
-    user_id: ""
+    listedby_id: ""
   });
   
   const handleUpload = (event) => {
@@ -85,7 +85,7 @@ import {
       
     };
     getCategories();
-    setItem({ ...item, user_id: user.uid })
+    setItem({ ...item, listedby_id: user.uid })
   }, []);
 
   const handleChange = (e) => {

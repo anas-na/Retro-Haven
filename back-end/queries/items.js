@@ -2,12 +2,33 @@ const db = require("../db/dbConfig");
 
 const getAllItems = async () => {
     try {
+        const allItems = await db.any("SELECT * FROM items");
+        return allItems;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const getUnsoldItems = async () => {
+    try {
         const allItems = await db.any("SELECT * FROM items WHERE sold = False");
         return allItems;
     } catch (error) {
         console.log(error);
     }
 };
+const getSoldItems = async () => {
+    try {
+        const allItems = await db.any("SELECT * FROM items WHERE sold = True");
+        return allItems;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
+
 
 const getItem = async (id) => {
     try {
@@ -33,9 +54,10 @@ const createItem = async (newItem) => {
 
 const updateItem = async (id, item) => {
     try {
-        const { photo, name, description, price, location } = item;
-        const query = "UPDATE items SET photo = $1, name = $2, description = $3, price = $4, location = $5 WHERE id = $6 RETURNING *";
-        const updatedItem = await db.one(query, [photo, name, description, price, location, id]);
+        console.log(item)
+        const {boughtby_id, sold } = item;
+        const query = "UPDATE items SET boughtby_id = $1, sold = $2  WHERE id = $3 RETURNING *";
+        const updatedItem = await db.one(query, [boughtby_id, sold, id]);
         return updatedItem;
     } catch (error) {
         return error;
@@ -58,5 +80,7 @@ module.exports = {
     getItem,
     createItem,
     updateItem,
-    deleteItem
+    deleteItem,
+    getUnsoldItems,
+    getSoldItems
 };

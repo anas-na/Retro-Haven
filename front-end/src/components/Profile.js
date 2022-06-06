@@ -26,17 +26,16 @@ const Profile = (props) => {
   const [items, setItems] = useState([]);
   const [user, setUser] = useState([]);
   const [currentUserItems, setCurrentUserItems] = useState(null);
+  const [currentUserBoughtItems, setcurrentUserBoughtItems] = useState(null)
   const [loading, setLoading] = useState(true);
 
   const fbUser = useContext(UserContext);
-  console.log(fbUser)
  
     const getUser = async () => {
       try {
         if(fbUser){
           const { uid } = fbUser;
         let res = await axios.get(`${API}/users/${fbUser.uid}`);
-        console.log(res)
         setUser(res.data);
         }
       } catch (error) {
@@ -58,10 +57,23 @@ const Profile = (props) => {
        LoadingScreen()
     }else if(items){
       let theItems;
-      theItems = items.filter((item) => fbUser.uid === item.user_id);
+      theItems = items.filter((item) => fbUser.uid === item.listedby_id);
       theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)
     
-      console.log(theItems)
+      console.log('listed:', theItems)
+    }
+  }
+  const getCurrentUserBoughtItems = () => {
+    // console.log("fbUser", fbUser)
+    // console.log("ITEMS", items)
+    if (!fbUser) {
+       LoadingScreen()
+    }else if(items){
+      let boughtItems;
+      boughtItems = items.filter((item) => fbUser.uid === item.boughtby_id);
+      boughtItems.length > 0 ? setcurrentUserBoughtItems(boughtItems) : setcurrentUserBoughtItems(null)
+    
+      console.log('bought', boughtItems)
     }
   }
   
@@ -75,6 +87,7 @@ const Profile = (props) => {
     getUser().then(user=>{
       getItems(user);
       getCurrentUserItems(user);
+      getCurrentUserBoughtItems(user);
     })
   }, [fbUser]);
 
@@ -88,7 +101,7 @@ const Profile = (props) => {
 
   // useEffect(() => {
   //   if(items && user) {
-  //     setCurrentUserItems(items.filter((item) => user.uid === item.user_id))
+  //     setCurrentUserItems(items.filter((item) => user.uid === item.listedby_id))
   //   }
   // }, [items, user])
 
@@ -101,7 +114,6 @@ const Profile = (props) => {
   return (
     <div className="profile">
       <div className="profileTitle">
-      <h3>Your Profile:</h3>
       <h3>
         {user
           ? "Welcome " + user.first_name + "!"
@@ -109,8 +121,9 @@ const Profile = (props) => {
       </h3>
       </div>
       {/* <img src={user.img} alt={user.name} /> */}
+      <div className="profileInfo">
       <div className="user">
-      <img src={user.image}/>
+      <img className="userImage" src={user.image}/>
       <div className="userInfo">
       <p>Name: {user.first_name} {user.last_name}</p>
       <p> Email:{user.email}</p>
@@ -120,22 +133,41 @@ const Profile = (props) => {
       </div>
       <div>
       <label htmlFor="userItems"></label>
-      <div className="userItems">
         <h3>My Items:</h3>
+      <div className="userItems">
+        <div>
+        <h1>listed Items:</h1>
+        <div  className="listedItems">
         {currentUserItems
           ? currentUserItems.map((item) => {
               return (
-                <div className="usersItems">
-                  
-                  {/* display currentUser item names & reviews */}
+                <div>
                   <p className="postedItems"><h6>{item.name}</h6>
-                      <img src={item.photo}/></p> 
-                      
-                  <p>{item.review}</p>
+                  <img src={item.photo}/></p>   
+                  {/* <p>{item.review}</p> */}
                 </div>
               );
             })
           : "No Items yet! Go ahead and list one to get started!"}
+          </div>
+          </div>
+          <div>
+            <h1>Bought Items:</h1>
+          <div className="boughtItems">
+          {currentUserBoughtItems
+          ? currentUserBoughtItems.map((item) => {
+              return (
+                <div className="boughtItems">
+                  <p className="postedItems"><h6>{item.name}</h6>
+                  <img src={item.photo}/></p>   
+                  {/* <p>{item.review}</p> */}
+                </div>
+              );
+            })
+          : "No Items yet! Go ahead and list one to get started!"}
+          </div>
+          </div>
+      </div>
       </div>
       </div>
       {/* <button onClick={handleEdit}>Edit</button> */}

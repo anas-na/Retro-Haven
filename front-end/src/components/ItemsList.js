@@ -22,7 +22,7 @@ const ItemsList = () => {
   const fetchItems = () => {
     setLoading(true);
     axios
-      .get(`${API}/items`)
+      .get(`${API}/items/availableitems`)
       .then((res) => {
         setItems(res.data);
         setLoading(false);

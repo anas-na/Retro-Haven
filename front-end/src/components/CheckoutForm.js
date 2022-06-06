@@ -50,9 +50,9 @@ export default function CheckoutForm(props) {
     try {
       let selectedItemDetails = await handleSelectedItem(props.item_id);
       addDoc(collection(db, "bookings"), {
-        rentee_id: user.uid,
+        buyer_id: user.uid,
         item_details: selectedItemDetails,
-        renter_id: selectedItemDetails.user_id,
+        seller_id: selectedItemDetails.listedby_id,
         item_id: props.item_id,
         message: message,
         total_price: totalPrice,
@@ -85,6 +85,16 @@ export default function CheckoutForm(props) {
       return;
     }
     props.setPaymentCompleted(response.success ? true : false);
+    const updateItem = async (id) => {
+      console.log(id)
+      try {
+        await axios.put(`${API}/items/${id}`, {boughtby_id: user.uid, sold : true});
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    updateItem(props.item_id);
+
   };
 
   return (

@@ -8,25 +8,33 @@
   background-repeat: repeat;
   background-color: #35244B;
 }
+.profileInfo {
+  border: solid #186e8b 0.3em;;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.7)
 
+}
 .profileTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    text-align: center;
 }
 
 .user {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .userInfo {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .userInfo p {
-    color: white;
+    color: black;
     margin-top: 10px;
 }
 
@@ -36,12 +44,35 @@
     flex-direction: column;
 } */
 
-.userItems h6 {
+/* .userItems h6 {
     text-align: center;
-}
+} */
 
-.usersItems {
+.userItems {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+   /* text-align: center; */
+}
+.userItems img {
+    height: 25%;
+    width: 25%;
 }
 
+.userImage {
+    border-radius: 10%;
+}
+
+.listedItems {
+    display: flex;
+    flex-direction: column;
+}
+.boughtItems {
+    /* height: 50%; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
