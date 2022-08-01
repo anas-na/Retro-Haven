@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS messages;
 
 CREATE TABLE users (
     id VARCHAR PRIMARY KEY,
@@ -42,6 +43,14 @@ CREATE TABLE transactions (
     owner_id INT,
     rentee_id INT
 );
+
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    sender_id VARCHAR,
+    receiver_id VARCHAR,
+    message TEXT NOT NULL,
+    date current_timestamp
+)
 
 
 CREATE TABLE reviews (

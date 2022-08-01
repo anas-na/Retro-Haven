@@ -33,3 +33,9 @@ INSERT INTO items (category_id,photo, name, description, price, location, listed
 (3, 'https://firebasestorage.googleapis.com/v0/b/retro-haven.appspot.com/o/items%2FbearBeanie.jpeg?alt=media&token=0ec476ce-4d59-4b9e-a0bb-65b83892d244', 'TY Beanie Baby - 1999 Signature Bear', 'TY Beanie Baby - 1999 Signature Bear - Great Condition w/ Tags', 10, 'cobble hill, brooklyn', '8fFWde4Em6S0JjYSeAV2v489Qxu2', '77Kkd6UM6ggnTbZxR3NMG3uieP73', True),
 (3, 'https://firebasestorage.googleapis.com/v0/b/retro-haven.appspot.com/o/items%2Fleopardbeanie.jpeg?alt=media&token=14862bca-8831-492b-92a5-f1e6d1b2218c', 'TY Beanie Baby - Blizzard the Snow Leopard', 'TY Beanie Baby - Blizzard the Snow Leopard- Great Condition w/ Tags', 10, 'hells kitchen, manhattan', '8fFWde4Em6S0JjYSeAV2v489Qxu2', '77Kkd6UM6ggnTbZxR3NMG3uieP73', True),
 (3, 'https://firebasestorage.googleapis.com/v0/b/retro-haven.appspot.com/o/items%2Fluigicube.jpeg?alt=media&token=a61e3ccd-9627-4169-b2d4-cd30c02a069b', 'Super Mario Bros. Toys', 'Super Mario Bros. Toys - Luigi Launcher & Rubix Cube', 10, 'long island city, queens', '8fFWde4Em6S0JjYSeAV2v489Qxu2', '77Kkd6UM6ggnTbZxR3NMG3uieP73', True);
+
+INSERT INTO messages (sender_id, receiver_id, message ) VALUES
+('77Kkd6UM6ggnTbZxR3NMG3uieP73', 'i2fAV92rUiSA4N442t2DUeCXJvN2',  'hello, is this still available ?'),
+('i2fAV92rUiSA4N442t2DUeCXJvN2', '77Kkd6UM6ggnTbZxR3NMG3uieP73', 'Hi there, yes it is still available for sell'),
+('8fFWde4Em6S0JjYSeAV2v489Qxu2', '77Kkd6UM6ggnTbZxR3NMG3uieP73', 'hi there can you meet in the next couple of day please ?'),
+('77Kkd6UM6ggnTbZxR3NMG3uieP73', '8fFWde4Em6S0JjYSeAV2v489Qxu2', 'Yes, I am available tomorrow or today');
