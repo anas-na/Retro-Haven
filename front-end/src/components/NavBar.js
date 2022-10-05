@@ -54,6 +54,7 @@ const NavBar = () => {
   }, [fbUser]);
   if (fbUser) {
     console.log(fbUser)
+    console.log(user)
 
     return (
       <nav>
