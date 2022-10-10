@@ -154,6 +154,26 @@ const NavBar = () => {
               How It Works
             </NavLink>
             <NavLink
+              to="/items"
+              activeStyle={{
+                color: "#98bd89",
+                fontSize: "1.8em",
+                fontWeight: " bold",
+              }}
+            >
+              Items
+            </NavLink>
+            <NavLink
+              to="/login"
+              activeStyle={{
+                color: "#98bd89",
+                fontSize: "1.8em",
+                fontWeight: " bold",
+              }}
+            >
+              login
+            </NavLink>
+            <NavLink
               to="/about"
               activeStyle={{
                 color: "#98bd89",

@@ -10,6 +10,8 @@ import Calendar from "./Calendar";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const API = apiURL();
 const stripePromise = loadStripe(
@@ -46,9 +48,10 @@ const ItemDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
-
+  const user = useContext(UserContext);
   console.log(item)
   console.log(item.price)
+  console.log(user)
   
   const totalPrice = item.price;
 
@@ -88,57 +91,150 @@ const ItemDetails = () => {
       console.log(error);
     }
   };
-
-  return (
-    <div className="detailContainer">
-      <div className="details">
-        <div className="itemOmg">
-          <h5>{item.name}</h5>
-          <img src={item.photo} className="descPhoto" />
+  if (user) {
+    return (
+    
+      <div className="detailContainer">
+        <div className="details">
+          <div className="itemOmg">
+            <h5>{item.name}</h5>
+            <img src={item.photo} className="descPhoto" />
+          </div>
+          <section className="descContainer">
+            <div className="detailLine">
+              <h6>Description: </h6> {item.description}
+            </div>
+            <div className="detailLine">
+              {" "}
+              <h6>Category:</h6> Special Occasion
+            </div>
+            <div className="detailLine">
+              <h6>Price:</h6> ${item.price}
+            </div>
+            <div className="detailLine">
+              <h6>Location:</h6> {item.location}
+              {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
+            </div>
+          </section>
         </div>
-        <section className="descContainer">
-          <div className="detailLine">
-            <h6>Description: </h6> {item.description}
-          </div>
-          <div className="detailLine">
-            {" "}
-            <h6>Category:</h6> Special Occasion
-          </div>
-          <div className="detailLine">
-            <h6>Price:</h6> ${item.price}
-          </div>
-          <div className="detailLine">
-            <h6>Location:</h6> {item.location}
-            {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
-          </div>
-        </section>
+        {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+        
+        <div className="paymentContainer">
+          {/* <Calendar
+            startDate={startDate}
+            endDate={endDate}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+          />{" "} */}
+          {paymentCompleted ? (
+            successMessage()
+          ) : (
+            <Elements stripe={stripePromise}>
+              <CheckoutForm
+                totalPrice={totalPrice}
+                item={item}
+                item_id={id}
+                setPaymentCompleted={setPaymentCompleted}
+  
+                className="paymentContainer"
+              />
+              </Elements>
+          )}
+        </div>
       </div>
-      {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+    );
 
-      <div className="paymentContainer">
-        {/* <Calendar
-          startDate={startDate}
-          endDate={endDate}
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-        />{" "} */}
-        {paymentCompleted ? (
-          successMessage()
-        ) : (
-          <Elements stripe={stripePromise}>
-            <CheckoutForm
-              totalPrice={totalPrice}
-              item={item}
-              item_id={id}
-              setPaymentCompleted={setPaymentCompleted}
-
-              className="paymentContainer"
-            />
-            </Elements>
-        )}
+  } else {
+    return (
+    
+      <div className="detailContainer">
+        <div className="details">
+          <div className="itemOmg">
+            <h5>{item.name}</h5>
+            <img src={item.photo} className="descPhoto" />
+          </div>
+          <section className="descContainer">
+            <div className="detailLine">
+              <h6>Description: </h6> {item.description}
+            </div>
+            <div className="detailLine">
+              {" "}
+              <h6>Category:</h6> Special Occasion
+            </div>
+            <div className="detailLine">
+              <h6>Price:</h6> ${item.price}
+            </div>
+            <div className="detailLine">
+              <h6>Location:</h6> {item.location}
+              {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
+            </div>
+          </section>
+        </div>
+        {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+        
+        <div className="paymentContainer">
+          {/* <Calendar
+            startDate={startDate}
+            endDate={endDate}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+          />{" "} */}
+          <p>Please Sign up or Log in to make purchase.</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  // return (
+    
+  //   <div className="detailContainer">
+  //     <div className="details">
+  //       <div className="itemOmg">
+  //         <h5>{item.name}</h5>
+  //         <img src={item.photo} className="descPhoto" />
+  //       </div>
+  //       <section className="descContainer">
+  //         <div className="detailLine">
+  //           <h6>Description: </h6> {item.description}
+  //         </div>
+  //         <div className="detailLine">
+  //           {" "}
+  //           <h6>Category:</h6> Special Occasion
+  //         </div>
+  //         <div className="detailLine">
+  //           <h6>Price:</h6> ${item.price}
+  //         </div>
+  //         <div className="detailLine">
+  //           <h6>Location:</h6> {item.location}
+  //           {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
+  //         </div>
+  //       </section>
+  //     </div>
+  //     {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+      
+  //     <div className="paymentContainer">
+  //       {/* <Calendar
+  //         startDate={startDate}
+  //         endDate={endDate}
+  //         setStartDate={setStartDate}
+  //         setEndDate={setEndDate}
+  //       />{" "} */}
+  //       {paymentCompleted ? (
+  //         successMessage()
+  //       ) : (
+  //         <Elements stripe={stripePromise}>
+  //           <CheckoutForm
+  //             totalPrice={totalPrice}
+  //             item={item}
+  //             item_id={id}
+  //             setPaymentCompleted={setPaymentCompleted}
+
+  //             className="paymentContainer"
+  //           />
+  //           </Elements>
+  //       )}
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default ItemDetails;

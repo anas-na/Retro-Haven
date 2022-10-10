@@ -29,16 +29,16 @@ function App() {
           <NavBar />
           {/* <Notifications /> */}
           <Switch>
-            <AuthRoute exact path="/" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={LogIn} />
             <Route path="/howItWorks" component={HowItWorks} />
-            <AuthRoute path="/newitem" component={ItemNew} />
-            <AuthRoute exact path="/items/:id" component={ItemDetails} />
+            <Route path="/newitem" component={ItemNew} />
+            <Route exact path="/items/:id" component={ItemDetails} />
             <Route path="/items" component={Index} />
             <Route path="/myprofile" component={Profile} />
             <Route path="/editItems" component={Edit} />
-            <AuthRoute path="notifications" component={Notifications} />
+            {/* <AuthRoute path="notifications" component={Notifications} /> */}
             <Route path="/about" component={About} />
             <Route path="*" component={FourOFour} />
             
