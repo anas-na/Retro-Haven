@@ -50,22 +50,22 @@ CREATE TABLE messages (
 );
 
 
-CREATE TABLE transactions (
-    id SERIAL PRIMARY KEY, 
-    item_id INT,
-    owner_id INT,
-    rentee_id INT
-);
+-- CREATE TABLE transactions (
+--     id SERIAL PRIMARY KEY, 
+--     item_id INT,
+--     owner_id INT,
+--     rentee_id INT
+-- );
 
 
-CREATE TABLE reviews (
-    id SERIAL PRIMARY KEY, 
-    name TEXT,
-    review TEXT,
-    prod_rating INT,
-    owner_rating INT,
-    transaction_id INT
-);
+-- CREATE TABLE reviews (
+--     id SERIAL PRIMARY KEY, 
+--     name TEXT,
+--     review TEXT,
+--     prod_rating INT,
+--     owner_rating INT,
+--     transaction_id INT
+-- );
 
 
 
