@@ -18,7 +18,18 @@ const getCategory = async (id) => {
     }
 };
 
+const getCategoryItems = async (id) => {
+    try {
+        const categoryItems = await db.any("SELECT * FROM items WHERE category_id = $1", id)
+        console.log(categoryItems)
+        return categoryItems
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getAllCategories,
-    getCategory
+    getCategory,
+    getCategoryItems
 };

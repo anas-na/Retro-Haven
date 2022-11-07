@@ -12,25 +12,37 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { useState } from "react";
+import GamingItems from '../components/GamingItems';
+import {setCookie, getCookie} from '../util/cookies.js';
+import ProductSlider from '../components/ItemsCard';
+
+
 
 const Home = () => {
-  const { logOut } = useUser();
+  // const { logOut } = useUser();
 
-  const handleLogOut = () => {
-    try {
-      logOut();
-      return;
-    } catch (error) {
-      alert(error);
-    }
-  };
+  // const handleLogOut = () => {
+  //   try {
+  //     logOut();
+  //     return;
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // };
+
+  console.log(getCookie("hasVisited"))
 
   return (
-    <div className='homeContainer'>
-     <div className='textContainer'>
-      {/* <h9>Welcome To Retro Haven</h9>
-     <h10>Your <h11>Number 1 Destination</h11>, for buying or selling anything <h11>Retro </h11> that you desire, <h11>anywhere</h11> in USA.</h10> */}
-     </div>
+    <div className='homeContainer' onClick={setCookie("hasVisited", "true")}>
+     
+      <h9>Welcome To Retro Haven</h9>
+
+     {/* <h10>Your <h11>Number 1 Destination</h11>, for buying or selling anything <h11>Retro </h11> that you desire, <h11>anywhere</h11> in USA.</h10> */}
+      <GamingItems />
+
+      
+    {/* create a button "get started" that links to sign up page/ hool the cookie to it*/}
+    
     </div>
   );
 };

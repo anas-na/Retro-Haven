@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../providers/UserProvider";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
+// import setCookie from '../util/cookies.js';
 
 const API = apiURL();
 
@@ -52,9 +53,9 @@ const NavBar = () => {
     }, 750);
     getUser()
   }, [fbUser]);
+
+
   if (fbUser) {
-    console.log(fbUser)
-    console.log(user)
 
     return (
       <nav>
@@ -68,7 +69,7 @@ const NavBar = () => {
             <NavLink
               to="/items"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -79,7 +80,7 @@ const NavBar = () => {
             <NavLink
               to="/newitem"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -90,7 +91,7 @@ const NavBar = () => {
             <NavLink
               to="/howItWorks"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -100,7 +101,7 @@ const NavBar = () => {
             <NavLink
               to="/about"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -135,10 +136,10 @@ const NavBar = () => {
     );
   } else {
     return (
-      <nav>
-        <div className="navContainer">
-          
-            <Link to="/">
+      <nav >
+
+        <div className="navContainer" >
+            <Link to="/" >
               <img src={logo} className="logo" />
             </Link>
           
@@ -146,7 +147,7 @@ const NavBar = () => {
             <NavLink
               to="/howItWorks"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -156,7 +157,7 @@ const NavBar = () => {
             <NavLink
               to="/items"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -166,7 +167,7 @@ const NavBar = () => {
             <NavLink
               to="/login"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}
@@ -176,7 +177,7 @@ const NavBar = () => {
             <NavLink
               to="/about"
               activeStyle={{
-                color: "#98bd89",
+                color: "white",
                 fontSize: "1.8em",
                 fontWeight: " bold",
               }}

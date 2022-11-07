@@ -10,22 +10,7 @@
     background-size: contain;
 }
 
-img.marker {
-    /* background: linear-gradient(
-        45deg,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
-            box-shadow: -2px 2px 2px 0 rgb(178 178 178 / 40%);
-            content: "";
-            height: 15px;
-            left: 0;
-            position: absolute;
-            top: 0;
-            transform: translate(-50%,-50%) rotate(
-        -45deg);
-            width: 15px; */
-    position: absolute;
-    width: 2.5em;
-    background: transparent;
-}
+
 
 .details {
     display: flex;
@@ -52,7 +37,9 @@ img.marker {
 }
 
 .descPhoto{
-    min-width: 19em;
+    max-height: 400px;
+    min-width:50px;
+    border-radius: 20px;
 }
 
 h5 {
