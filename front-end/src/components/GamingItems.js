@@ -36,7 +36,7 @@ const GamingItems = () => {
     <div className="Carousel">
           <h3>Gaming Items:</h3>
       <div className="carousel-wrapper">
-        <Carousel breakPoints={breakPoints}>
+        <Carousel breakPoints={breakPoints} className="carousel">
           {gamingItems.map(gamingItem => {
             return (
               <ItemsCard key={gamingItem.id} gamingItem={gamingItem} />

@@ -6,8 +6,9 @@
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
   background-color: #35244B;
+  display: flex;
+  flex-direction: column;
 }
 
 /* .textContainer {
@@ -46,21 +47,30 @@ h3 {
 }
 
 .carousel-wrapper {
-  align-self: center;
   background-color: darkpurple;
-  width: 75%;
+  width: 95%;
   height: 500px;
 }
 
-.rec-carousel-h1:focus {
+/* .rec-carousel-h1:focus {
   outline: none;
   box-shadow: inset 0 0 1px 0px violet;
-}
+} */
 
 .cardImage {
  
-    height: 40vh;
+    height: 40%;
     width: 100%;
     object-fit: cover;
   
+}
+
+.carousel {
+  /* background-color: black; */
+  height: 300px;
+}
+
+.homeButton {
+  align-self: center;
+  width: 200px;
 }

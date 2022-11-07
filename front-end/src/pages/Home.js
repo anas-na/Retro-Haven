@@ -15,6 +15,8 @@ import { useState } from "react";
 import GamingItems from '../components/GamingItems';
 import {setCookie, getCookie} from '../util/cookies.js';
 import ProductSlider from '../components/ItemsCard';
+import { MDBBtn } from 'mdb-react-ui-kit';
+
 
 
 
@@ -33,7 +35,7 @@ const Home = () => {
   console.log(getCookie("hasVisited"))
 
   return (
-    <div className='homeContainer' onClick={setCookie("hasVisited", "true")}>
+    <div className='homeContainer' >
      
       <h9>Welcome To Retro Haven</h9>
 
@@ -42,7 +44,9 @@ const Home = () => {
 
       
     {/* create a button "get started" that links to sign up page/ hool the cookie to it*/}
-    
+    <MDBBtn rounded className='homeButton' color='secondary' href='/items' onClick={setCookie("hasVisited", "true")}>
+        Click For More
+      </MDBBtn>
     </div>
   );
 };
