@@ -39,11 +39,14 @@ const Home = () => {
     <div className='homeContainer' >
      
       <h9>Welcome To Retro Haven</h9>
-
+     
      {/* <h10>Your <h11>Number 1 Destination</h11>, for buying or selling anything <h11>Retro </h11> that you desire, <h11>anywhere</h11> in USA.</h10> */}
+     <div className='gamingItems'>
       <GamingItems />
-
+      </div>
+      <div className='moviesItems'>
       <MoviesItems />
+      </div>
       
     {/* create a button "get started" that links to sign up page/ hool the cookie to it*/}
     <MDBBtn rounded className='homeButton' color='secondary' href='/items' onClick={setCookie("hasVisited", "true")}>

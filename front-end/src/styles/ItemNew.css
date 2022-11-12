@@ -5,10 +5,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("./media/homeBackground.svg");;
-  background-size:cover;
+  background: linear-gradient(to top, #5f0f40 0%, #310e68 100%);
+    /* background-size:cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   padding-top: 2em;
   padding-bottom: 4em;
 }

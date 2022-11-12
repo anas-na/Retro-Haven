@@ -1,11 +1,11 @@
 .navContainer {
-  background-color: #35244B;
+  background-color: #310E68;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 5px;
-  box-shadow: 0px 3px 7px #35244B;
+  box-shadow: 0px 3px 7px #310E68;
 }
 
 .links {
@@ -14,8 +14,7 @@
   flex-direction: row;
   width: 80%;
   justify-content: space-evenly;
-  /* padding: 10px; */
-  /* padding: 0px, 10px, 0px, 10px; */
+
 }
 
 .navTitle {
@@ -56,19 +55,21 @@ a:hover {
 .logo {
   max-height: 5em;
   margin: 0;
+  
 }
 
 nav .profile {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   border: 3px solid #eae6f6;
+  
 }
 nav ul {
   position: absolute;
-  top: 40px;
-  right: 45px;
+  top: 60px;
+  right: 60px;
 
   border-radius: 10px;
   display: flex;
@@ -81,7 +82,7 @@ nav ul {
 }
 
 nav #user-menu {
-  background: rgba(255, 255, 255, 0.7);
+  background: #291647;
   width: 8em;
   box-shadow: 0px 3px 7px #0a2900;
 }
@@ -93,6 +94,10 @@ nav #user-menu {
   justify-content: end;
   align-items: center;
   width: 5.5em;
+  margin-right: 0px;
+}
+.button1 {
+  margin-right: 25px;
 }
 
 /* .dropdownButton {

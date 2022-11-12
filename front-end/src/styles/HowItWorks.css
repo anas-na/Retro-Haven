@@ -1,13 +1,13 @@
-.hiwContainer {
-  background-image: url("./media/homeBackground.svg");;
+.howContainer {
   background-size: contain;
-  background-color: #35244B;
+  /* background-color: #35244B; */
   height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  background: linear-gradient(to top, #5f0f40 0%, #310e68 100%);
 }
 
 .listContainer {
@@ -57,4 +57,13 @@ ol {
     width: 7em;
     
   }
+}
+
+.howItWorksTitle {
+  text-align: center;
+  font-family: 'Mr Dafoe';
+  margin: 0;
+  font-size: 5.5em;
+  color: white;
+  text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
 }

@@ -3,11 +3,7 @@ import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL.js";
 import ItemListItem from "./ItemListItem";
 import LoadingScreen from "./LoadingScreen.js";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-} from "mdb-react-ui-kit";
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 const API = apiURL();
 
 const ItemsList = () => {
@@ -23,16 +19,16 @@ const ItemsList = () => {
   const sortByDesc = () => {
     setItems([...items].sort((a, b) => b.price - a.price));
   };
-  
+
   const fetchItems = () => {
     setLoading(true);
     axios
       .get(`${API}/items/availableitems`)
-      .then((res) => {
+      .then(res => {
         setItems(res.data);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(err => {
         setLoading(false);
         alert(err.message);
       });
@@ -41,55 +37,51 @@ const ItemsList = () => {
   useEffect(() => {
     fetchItems();
   }, []);
-  console.log(items)
+  console.log(items);
 
   return (
     <div>
-      {loading ? (
-        <LoadingScreen />
-      ) : (
-        <section className="itemsContainer">
-          <div className="searchContainer">
-            <input
-              type="text"
-              placeholder="Search For Items..."
-              className="search"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
-          </div>
-          <h1>Items For Sale</h1>
+      {loading
+        ? <LoadingScreen />
+        : <section className="itemsContainer">
+            <div className="searchContainer">
+              <input
+                type="text"
+                placeholder="Search For Items..."
+                className="search"
+                onChange={e => {
+                  setSearch(e.target.value);
+                }}
+              />
+            </div>
 
-          <label>Sort By</label>
-		<button className="Button" onClick={sortByAsc}>$ - $$$</button>
-		<button className="Button" onClick={sortByDesc}>$$$ - $</button>
+            {/* <label>Sort By</label> */}
+            <div className="sorting">
+              <button className="Button" onClick={sortByAsc}>
+                $ - $$$
+              </button>
+              <button className="Button" onClick={sortByDesc}>
+                $$$ - $
+              </button>
+            </div>
 
-          <div className="allItemsContainer">
-          {/* <MDBContainer  className="my-5 text-center singleItem"> */}
-      {/* <MDBRow>
-        <MDBCol md="12" lg="4" className="mb-4"> */}
-            {items
-              .filter((item) => {
-                if (search === "") {
-                  return item;
-                } else if (
-                  item.name.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return item;
-                }
-              })
-              .map((item) => {
-                return <ItemListItem key={item.id} item={item} />;
-              })}
-              {/* </MDBCol>
-        </MDBRow> */}
-      {/* </MDBContainer> */}
-          </div>
-        </section>
-      )}
+            <div className="allItemsContainer">
+              {items
+                .filter(item => {
+                  if (search === "") {
+                    return item;
+                  } else if (
+                    item.name.toLowerCase().includes(search.toLowerCase())
+                  ) {
+                    return item;
+                  }
+                })
+                .map(item => {
+                  return <ItemListItem key={item.id} item={item} />;
+                })}
+            </div>
+          </section>}
     </div>
-    
   );
 };
 

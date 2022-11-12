@@ -1,5 +1,6 @@
 import { auth } from "../services/Firebase";
 import { useState, useEffect } from "react";
+import {  useHistory } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -29,10 +30,12 @@ const useUser = () => {
     console.log(res);
     return res;
   };
+  let history = useHistory()
   const logOut = () => {
     signOut(auth)
       .then(() => {
         alert("you have logged out");
+        history.push('/')
       })
       .catch((error) => {
         const message = error.message;

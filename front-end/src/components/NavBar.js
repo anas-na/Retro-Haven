@@ -7,8 +7,8 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../providers/UserProvider";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
-// import setCookie from '../util/cookies.js';
 
+// import setCookie from '../util/cookies.js';
 const API = apiURL();
 
 const NavBar = () => {
@@ -38,11 +38,17 @@ const NavBar = () => {
   const handleLogOut = () => {
     try {
       logOut();
+      // history.push("/")
       return;
     } catch (error) {
       alert(error);
     }
   };
+  const images = document.querySelectorAll('img');
+
+images.forEach((image) => {
+   if (image.getAttribute('src') === '') image.src = 'images/coming-soon.jpg';
+});
 
   const handleDropdown = () => {
     setOpen((prevOpen) => !prevOpen);

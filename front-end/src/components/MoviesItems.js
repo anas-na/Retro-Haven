@@ -7,6 +7,10 @@ import { UserContext } from "../providers/UserProvider";
 import ItemsCard from "./ItemsCard.js";
 import ItemsList from "./ItemsList.js";
 import Carousel from "react-elastic-carousel";
+
+import {
+  MDBTypography
+} from "mdb-react-ui-kit";
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 550, itemsToShow: 2, itemsToScroll: 2 },
@@ -34,7 +38,10 @@ const MoviesItems = () => {
   // console.log(MoviesItems)
   return (
     <div className="Carousel">
-          <h3>Movies Items:</h3>
+           <MDBTypography tag="h1" className="">
+            Gaming:
+          </MDBTypography>
+          <hr className="mt-0 mb-4" />
       <div className="carousel-wrapper">
         <Carousel breakPoints={breakPoints} className="carousel">
           {MoviesItems.map(MoviesItem => {

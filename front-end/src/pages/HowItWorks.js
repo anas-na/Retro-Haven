@@ -2,8 +2,8 @@ import '../styles/HowItWorks.css'
 
 const HowItWorks = () => {
     return (
-        <div className='hiwContainer'>
-            <h1>How EcoRent Works</h1>
+        <div className='howContainer'>
+            <h1 className='howItWorksTitle'>How RetroHaven Works</h1>
             <section className='listContainer'>
                 <ol>
                 <li>1. Find a retro item you'd like to buy through our categories or search</li>

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../providers/UserProvider";
 import "../styles/profile.css";
+import blankPhoto from '../styles/media/blankUser.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 // import useUser from "../hooks/useUser";
@@ -58,6 +59,12 @@ const Profile = props => {
     console.log("getItems func", allItems.data);
     setItems(allItems.data);
   };
+
+  const images = document.querySelectorAll('img');
+
+images.forEach((image) => {
+   if (image.getAttribute('src') === '') image.src = blankPhoto;
+});
 
   const getCurrentUserItems = () => {
     // console.log("fbUser", fbUser)
@@ -127,7 +134,7 @@ const Profile = props => {
   return (
     <div className="profile">
       <div className="profileTitle">
-        <MDBTypography tag="h2" className="p-">
+        <MDBTypography tag="h2" className="title">
           {user
             ? "Welcome " + user.first_name + "!"
             : "You're not signed in! Please log in/sign up :)"}{" "}
@@ -138,9 +145,10 @@ const Profile = props => {
           <img
             src={user.image}
             alt="Avatar"
-            // className="my-4 p-2 text-center"
-            style={{ width: "80px" }}
+            className="my-3 avatar"
+            // style={{ width: "150px" }}
             fluid
+            
           />
           <h5 className="p-2">
             {user.first_name} {user.last_name}

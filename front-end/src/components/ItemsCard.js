@@ -20,7 +20,7 @@ const breakPoints = [
 const ItemsCard = ({itemPhoto,itemName }) => {
     // console.log(gamingItem)
   return (
-    <div className="card h-10">
+    <div className="card h-10 m-3">
       {/* <div className="carousel-wrapper"> */}
         {/* <Carousel breakPoints={breakPoints}> */}
         <MDBCard className=''>

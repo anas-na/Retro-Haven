@@ -38,10 +38,6 @@
 .itemsContainer {
   min-height: 100vh;
   overflow: scroll;
-  background-color: #c6dabe;
-  background-image: url("./media/homeBackground.svg");;
-  background-attachment: fixed;
-  background-size: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,9 +59,7 @@
   
   }
   .Button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
   width: 7em;
   height: 2em;
   border: solid white 2px;
@@ -75,6 +69,7 @@
   font-size: 1.1em;
   margin-bottom: 1em;
   padding: 0.4em;
+  margin-right: 40px;
 } 
 
 .card {
@@ -86,4 +81,10 @@
 .image {
   /* max-width: 100px; */
   max-height: 300px;
+}
+
+.sorting {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
 }
