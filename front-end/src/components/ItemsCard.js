@@ -17,8 +17,8 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 }
 ];
 
-const ItemsCard = ({gamingItem}) => {
-    console.log(gamingItem)
+const ItemsCard = ({itemPhoto,itemName }) => {
+    // console.log(gamingItem)
   return (
     <div className="card h-10">
       {/* <div className="carousel-wrapper"> */}
@@ -26,12 +26,12 @@ const ItemsCard = ({gamingItem}) => {
         <MDBCard className=''>
           <MDBCardImage
           className="cardImage"
-            src={gamingItem.photo}
+            src={itemPhoto}
             alt='...'
             position='top'
           />
           <MDBCardBody>
-            <MDBCardTitle>{gamingItem.name}</MDBCardTitle>
+            <MDBCardTitle>{itemName}</MDBCardTitle>
             {/* <MDBCardText>
               This is a longer card with supporting text below as a natural lead-in to additional content.
               This content is a little bit longer.

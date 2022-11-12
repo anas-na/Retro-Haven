@@ -1,5 +1,5 @@
 .homeContainer {
-  height: 100vh;
+  height: 100%;
   /* width: 100%; */
   background-image: url("./media/homeBackground.svg");
   background-position: center;

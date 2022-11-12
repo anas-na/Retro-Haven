@@ -1,78 +1,70 @@
 .profile {
-    height: 100vh;
+  height: 100vh;
   width: 100%;
-  /* background-image: url("./media/homeBackground.svg"); */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: repeat;
-  background-color: #35244B;
-}
-.profileInfo {
-  border: solid #186e8b 0.3em;;
-  text-align: center;
-  width: 80%;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.7)
+  background-color: #35244b;
 
 }
-.profileTitle {
+
+  .profileTitle {
     text-align: center;
 }
-
-.user {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.userInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.userInfo p {
-    color: black;
-    margin-top: 10px;
-}
-
-/* .userItems li {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .userItems h6 {
-    text-align: center;
-} */
-
-.userItems {
+.userCard {
+    /* border: 1px black solid; */
+    max-width: 90%;
+    height: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
-   /* text-align: center; */
-}
-.userItems img {
-    height: 25%;
-    width: 25%;
-}
+    /* align-self: center; */
+    /* margin: auto; */
+    background-color: white;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+  
+    
+    
+    min-height: 400px;
+    width: 70vw;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
 
-.userImage {
-    border-radius: 10%;
 }
-
-.listedItems {
+/* .userCard :first-child {
+    width: 200px;
+} */
+.userCard :second-child {
+    width: auto;
+}
+.userMain {
+    width: 30%;
     display: flex;
     flex-direction: column;
+   background-color: black;
+   align-items: center;
+   padding-top: 5%;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+
 }
-.boughtItems {
-    /* height: 50%; */
+
+.userInfo {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 80%;
+}
+
+.usersItems {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
 }

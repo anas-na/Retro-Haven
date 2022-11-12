@@ -16,31 +16,31 @@ const breakPoints = [
 
 const API = apiURL();
 
-const GamingItems = () => {
-  const [gamingItems, setGamingItems] = useState([]);
+const MoviesItems = () => {
+  const [MoviesItems, setMoviesItems] = useState([]);
 
-  const fetchGamingItems = async () => {
+  const fetchMoviesItems = async () => {
     try {
-      const res = await axios.get(`${API}/categories/1/items`);
-      setGamingItems(res.data);
+      const res = await axios.get(`${API}/categories/2/items`);
+      setMoviesItems(res.data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    fetchGamingItems();
+    fetchMoviesItems();
   }, []);
 
-  // console.log(gamingItems)
+  // console.log(MoviesItems)
   return (
     <div className="Carousel">
-          <h3>Gaming Items:</h3>
+          <h3>Movies Items:</h3>
       <div className="carousel-wrapper">
         <Carousel breakPoints={breakPoints} className="carousel">
-          {gamingItems.map(gamingItem => {
-            {/* console.log(gamingItem) */}
+          {MoviesItems.map(MoviesItem => {
+            console.log(MoviesItem)
             return (
-              <ItemsCard key={gamingItem.id} itemPhoto={gamingItem.photo} itemName= {gamingItem.name} />
+              <ItemsCard key={MoviesItem.id} itemPhoto={MoviesItem.photo} itemName= {MoviesItem.name} />
             );
           })}
         </Carousel>
@@ -49,4 +49,4 @@ const GamingItems = () => {
   );
 };
 
-export default GamingItems;
+export default MoviesItems;
