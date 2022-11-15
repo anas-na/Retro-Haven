@@ -93,6 +93,7 @@
 
 .image {
   /* max-width: 100px; */
+  min-height: 300px;
   max-height: 300px;
 }
 
