@@ -27,7 +27,7 @@ const LogIn = () => {
   return (
     <section className="formContainer">
 
-      <h9 className="formTitle">LOGIN</h9>
+      <h4 className="formTitle">LOGIN</h4>
 
       <div className="loginForm">
 

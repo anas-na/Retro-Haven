@@ -96,7 +96,7 @@ const SignUp = () => {
 
   return (
     <section className='formContainer'>
-      <h9 className='formTitle'>Create An Account</h9>
+      <h4 className='formTitle'>Create An Account</h4>
 
       <div className='signupForm'>
         <form onSubmit={handleSignUp}>

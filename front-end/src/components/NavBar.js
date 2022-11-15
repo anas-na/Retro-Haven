@@ -1,14 +1,12 @@
 import { NavLink, Link, useHistory } from "react-router-dom";
 import "../styles/NavBar.css";
 import logo from '../styles/media/Retro.svg'
-import blankPhoto from '../styles/media/blankUser.png'
 import useUser from "../hooks/useUser";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../providers/UserProvider";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
 
-// import setCookie from '../util/cookies.js';
 const API = apiURL();
 
 const NavBar = () => {
@@ -24,7 +22,6 @@ const NavBar = () => {
       if(fbUser){
         const { uid } = fbUser;
       let res = await axios.get(`${API}/users/${fbUser.uid}`);
-      console.log(res.data)
       setUser(res.data);
       }
     } catch (error) {
@@ -33,12 +30,16 @@ const NavBar = () => {
   };
   let history = useHistory()
 
-  const navigateTo = () => history.push('/myprofile')
+  const navigateTo = () => {
+    history.push('/myprofile')
+    setOpen(false)
+  }
 
   const handleLogOut = () => {
     try {
       logOut();
       // history.push("/")
+      setOpen(false)
       return;
     } catch (error) {
       alert(error);

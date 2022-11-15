@@ -46,11 +46,11 @@ const Home = () => {
   return (
     <div className='homeContainer' >
      
-      <h9>Welcome To Retro Haven</h9>
+      <h4 className='homeMainTitle'>Welcome To Retro Haven</h4>
      
      {/* <h10>Your <h11>Number 1 Destination</h11>, for buying or selling anything <h11>Retro </h11> that you desire, <h11>anywhere</h11> in USA.</h10> */}
      <div className='gamingItems'>
-     <MDBTypography tag="h1" className="homeTitles">
+     <MDBTypography tag="h1" className="">
             Gaming:
           </MDBTypography>
           <hr className="mt-0 mb-4" />
@@ -63,14 +63,8 @@ const Home = () => {
           <hr className="mt-0 mb-4" />
       <MoviesItems />
       </div>
-      
-    {/* create a button "get started" that links to sign up page/ hool the cookie to it*/}
-    {/* <a href='/items'> */}
-    <div className='homeButton'  onClick={handleHomeButton}>Click For More</div>
-    {/* </a> */}
-    {/* <MDBBtn rounded className='homeButton' color='secondary' href='/items' onClick={setCookie("hasVisited", "true")}>
-        Click For More
-      </MDBBtn> */}
+    <div type='' className='homeButton'  onClick={handleHomeButton}>Click For More</div>
+  
     </div>
   );
 };

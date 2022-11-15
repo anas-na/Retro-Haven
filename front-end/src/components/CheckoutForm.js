@@ -100,8 +100,7 @@ export default function CheckoutForm(props) {
   return (
    
       <section className="checkoutContainer">
-        <h4 className="d-flex justify-content-between align-items-center mb-3"></h4>
-        <h>Pay with card</h>
+        <h2>Pay with card</h2>
         <form onSubmit={handleSubmit}>
         <div className="paymentForm">
           <div className="row">

@@ -125,7 +125,7 @@ import {
 
   return (
     <section className="formContainer">
-      <h9 className="formTitle">List An Item</h9>
+      <h4 className="formTitle">List An Item</h4>
 
       <section className="newItemForm">
         <form onSubmit={handleSubmit} className="itemNewForm">
@@ -150,7 +150,7 @@ import {
 
             <label htmlFor="category">Category </label>
 
-            <select id="category_id" required onChange={handleCategory} required>
+            <select id="category_id" required onChange={handleCategory}>
               <option selected='selected'>
                 Select A Category
               </option>
