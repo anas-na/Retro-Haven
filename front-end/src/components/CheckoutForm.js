@@ -104,10 +104,12 @@ export default function CheckoutForm(props) {
         <h6>Pay with card</h6>
         <form onSubmit={handleSubmit}>
           <h1>Send Message To Seller</h1>
+          
         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
+        <div className="paymentForm">
           <div className="row">
             <label htmlFor="cc-name">Name on card</label>
-            <div className="col-md-6 mb-3">
+            <div className="col-md-6 mb-3 ">
               <input
                 id="cc-name"
                 type="text"
@@ -130,21 +132,21 @@ export default function CheckoutForm(props) {
    
           <div className="row">
             <label htmlFor="cc-number">Card Number</label>
-            <div className="col-md-12 mb-3">
-              <CardNumberElement id="cc-number" className="form-control" />
-            </div>
-          </div>
+            {/* <div className=""> */}
+              <CardNumberElement id="cc-number" className="form-control cardNumber" />
+            {/* </div> */}
+          
 
           <label htmlFor="expiry">Expiration Date</label>
           <div className="col-md-6 mb-3">
             <CardExpiryElement id="expiry" className="form-control" />
 
             <label htmlFor="cvc">CVC</label>
-            <div className="col-md-6 mb-3">
+            <div className="col-md-6 mb-3 cardCvc" >
               <CardCvcElement id="cvc" className="form-control" />
             </div>
           </div>
-
+          </div>
           <hr className="mb-4" />
           <button
             className="btn btn-dark w-100 button1"
@@ -161,6 +163,7 @@ export default function CheckoutForm(props) {
             )}
           </button>
           {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
+          </div>
         </form>
       </section>
    

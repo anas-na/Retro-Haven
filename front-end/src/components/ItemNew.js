@@ -118,7 +118,7 @@ import {
 
   return (
     <section className="formContainer">
-      <h1 className="formTitle">List An Item</h1>
+      <h9 className="formTitle">List An Item</h9>
 
       <section className="newItemForm">
         <form onSubmit={handleSubmit}>
@@ -168,13 +168,14 @@ import {
               required
             />
             <div className='imageUpload'>
+            <label htmlFor="photo">Photo </label>
             <input className="photo" type="file" onChange={handleImage}/>
 
             <button onClick={handleUpload} className='button1'>Upload</button>
-            {imagePlaceHolder()}
+            
             </div>
           </div>
-          <input type="submit" className="button" />
+          <input type="submit" className="submitButton" />
         </form>
       </section>
     </section>

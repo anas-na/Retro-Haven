@@ -38,16 +38,12 @@ const MoviesItems = () => {
   // console.log(MoviesItems)
   return (
     <div className="Carousel">
-           <MDBTypography tag="h1" className="">
-            Gaming:
-          </MDBTypography>
-          <hr className="mt-0 mb-4" />
       <div className="carousel-wrapper">
         <Carousel breakPoints={breakPoints} className="carousel">
           {MoviesItems.map(MoviesItem => {
             console.log(MoviesItem)
             return (
-              <ItemsCard key={MoviesItem.id} itemPhoto={MoviesItem.photo} itemName= {MoviesItem.name} />
+              <ItemsCard key={MoviesItem.id} itemPhoto={MoviesItem.photo} itemName= {MoviesItem.name} itemsId={MoviesItem.id} />
             );
           })}
         </Carousel>

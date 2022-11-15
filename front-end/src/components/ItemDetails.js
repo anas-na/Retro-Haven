@@ -116,16 +116,8 @@ const ItemDetails = () => {
               {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
             </div>
           </section>
-        </div>
-        {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
-        
+        </div>        
         <div className="paymentContainer">
-          {/* <Calendar
-            startDate={startDate}
-            endDate={endDate}
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-          />{" "} */}
           {paymentCompleted ? (
             successMessage()
           ) : (

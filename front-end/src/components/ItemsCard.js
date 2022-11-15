@@ -17,29 +17,20 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 }
 ];
 
-const ItemsCard = ({itemPhoto,itemName }) => {
+const ItemsCard = ({itemPhoto,itemName,itemsId }) => {
+  console.log(itemName, itemsId)
     // console.log(gamingItem)
   return (
-    <div className="card h-10 m-3">
+    <div className="CarouselCards">
+    <img  className="carouselPicture" src={itemPhoto}/>
+    <p>{itemName}</p>
+    <a href={`/items/${itemsId}`} className="text-reset">
+    <div className="carouselButton">
+                <p >View Item</p>
+                </div>
+              </a>
       {/* <div className="carousel-wrapper"> */}
-        {/* <Carousel breakPoints={breakPoints}> */}
-        <MDBCard className=''>
-          <MDBCardImage
-          className="cardImage"
-            src={itemPhoto}
-            alt='...'
-            position='top'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>{itemName}</MDBCardTitle>
-            {/* <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
-            </MDBCardText> */}
-          </MDBCardBody>
-        </MDBCard>
-        {/* </Carousel> */}
-      {/* </div> */}
+        
     </div>
   );
 };

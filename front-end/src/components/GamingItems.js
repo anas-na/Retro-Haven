@@ -37,16 +37,13 @@ const GamingItems = () => {
   // console.log(gamingItems)
   return (
     <div className="Carousel">
-          <MDBTypography tag="h1" className="">
-            Gaming:
-          </MDBTypography>
-          <hr className="mt-0 mb-4" />
+          
       <div className="carousel-wrapper">
         <Carousel breakPoints={breakPoints} className="carousel " >
           {gamingItems.map(gamingItem => {
             {/* console.log(gamingItem) */}
             return (
-              <ItemsCard key={gamingItem.id} itemPhoto={gamingItem.photo} itemName= {gamingItem.name} />
+              <ItemsCard key={gamingItem.id} itemPhoto={gamingItem.photo} itemName= {gamingItem.name} itemsId={gamingItem.id} />
             );
           })}
         </Carousel>

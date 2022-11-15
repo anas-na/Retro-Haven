@@ -14,12 +14,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    gap: 10rem;
     padding:2em;
-    border: solid #186e8b 0.3em;
+    /* border: solid #186e8b 0.3em; */
     border-radius: 20px;
     width: 80%;
     margin: 1em;
-    background: rgba(255, 255, 255, 0.7);
+    background-color: #FAF9F6;
+    border-radius: 0.5rem;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 
 }
 
@@ -35,9 +42,11 @@
 }
 
 .descPhoto{
-    max-height: 400px;
-    min-width:50px;
+    padding-top: 10px;
+    max-height: 300px;
+    max-width:450px;
     border-radius: 20px;
+    align-self: center;
 }
 
 h5 {
@@ -71,8 +80,43 @@ h6 {
     width: 80%;
     margin: 1em;
     background: rgba(255, 255, 255, 0.7);
+   
 }
 
 .checkoutContainer {
     width: 80%;
+}
+h1 {
+    padding: 10px;
+    padding-top: 10px;
+}
+
+.paymentForm {
+    background-color: black;
+    display: grid;
+    grid-template-rows: auto auto auto auto ;
+    grid-template-columns: auto ;
+    /* justify-items: center; */
+}
+.row {
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+/* label {
+   text-align: center;
+} */
+
+#cc-number {
+    padding-left: 1px;
+    width: 370px
+}
+
+
+
+.cardCvc {
+    display: flex;
+    justify-content:flex-end;
+    padding-left: 100px;
+    width: 100px;
 }

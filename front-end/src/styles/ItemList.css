@@ -59,23 +59,36 @@
   
   }
   .Button {
+
   
-  width: 7em;
+  width: 6em;
   height: 2em;
   border: solid white 2px;
-  background-color: purple;
+  background: linear-gradient(to right, #5f0f40 0%, #310e68 100%);
   color: white;
   font-family: Comfortaa Bold;
   font-size: 1.1em;
   margin-bottom: 1em;
-  padding: 0.4em;
+  /* padding: 0.4em; */
   margin-right: 40px;
+  text-align: center;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+
+  border-radius: 0.5rem;
 } 
+
 
 .card {
   width: 300px;
   min-height: 500px;
   max-width: 500px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .image {
@@ -84,7 +97,11 @@
 }
 
 .sorting {
-  display: flex;
+  /* align-items: flex-start; */
+align-self: flex-start;
+padding-left: 4rem;
+  /* display: flex; */
   /* flex-direction: row; */
-  justify-content: space-between;
+   /* justify-content: space-between; */
+  
 }

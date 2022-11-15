@@ -55,7 +55,7 @@ const LogIn = () => {
           </div>
          
           <div className='signUp'>
-            <p>Don't have an account? </p>
+            <p className='loginQuestion'>Don't have an account? </p>
             <a href="/signup" className='button1'>
               Sign Up
             </a>

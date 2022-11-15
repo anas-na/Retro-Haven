@@ -58,10 +58,10 @@ const ItemsList = () => {
             {/* <label>Sort By</label> */}
             <div className="sorting">
               <button className="Button" onClick={sortByAsc}>
-                $ - $$$
+                $
               </button>
               <button className="Button" onClick={sortByDesc}>
-                $$$ - $
+                $$$
               </button>
             </div>
 
