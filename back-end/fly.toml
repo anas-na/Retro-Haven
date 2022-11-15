@@ -1,12 +1,9 @@
-# fly.toml file generated for retro-backend on 2022-10-24T15:19:25-04:00
+# fly.toml file generated for retro-haven-backend on 2022-11-15T14:40:14-05:00
 
-app = "retro-backend"
+app = "retro-haven-backend"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  builder = "heroku/buildpacks:20"
 
 [env]
   PORT = "8080"
