@@ -193,14 +193,14 @@ images.forEach((image) => {
                 return (
                   <div className="usersItems">
                     <MDBCol size="6" className="mb-3">
-                      <MDBTypography tag="h6">Items Name:</MDBTypography>
+                      {/* <MDBTypography tag="h6">Items Name:</MDBTypography> */}
                       <MDBCardText className="text-muted">
                         {item.name}
                       </MDBCardText>
                       </MDBCol>
                       <hr className="mt-0 mb-4" />
                       <MDBCol size="6" className="mb-3">
-                      <MDBTypography tag="h6">Price:</MDBTypography>
+                      {/* <MDBTypography tag="h6">Price:</MDBTypography> */}
                       <MDBCardText className="text-muted">
                         ${item.price}
                       </MDBCardText>

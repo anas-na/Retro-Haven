@@ -1,5 +1,6 @@
 import '../styles/Home.css'
 import React from "react";
+import { useHistory } from "react-router";
 import useUser from "../hooks/useUser";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
@@ -25,6 +26,7 @@ import {
 
 
 const Home = () => {
+  let history = useHistory();
   // const { logOut } = useUser();
 
   // const handleLogOut = () => {
@@ -36,7 +38,10 @@ const Home = () => {
   //   }
   // };
 
-  console.log(getCookie("hasVisited"))
+  const handleHomeButton = () => {
+    setCookie("hasVisited", "true")
+    history.push('/items')
+  }
 
   return (
     <div className='homeContainer' >
@@ -60,10 +65,9 @@ const Home = () => {
       </div>
       
     {/* create a button "get started" that links to sign up page/ hool the cookie to it*/}
-    <a href='/items'>
-
-    <button className='Button homeButton'  onClick={setCookie("hasVisited", "true")}>Click For More</button>
-    </a>
+    {/* <a href='/items'> */}
+    <div className='homeButton'  onClick={handleHomeButton}>Click For More</div>
+    {/* </a> */}
     {/* <MDBBtn rounded className='homeButton' color='secondary' href='/items' onClick={setCookie("hasVisited", "true")}>
         Click For More
       </MDBBtn> */}

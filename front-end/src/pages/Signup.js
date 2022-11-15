@@ -96,7 +96,7 @@ const SignUp = () => {
 
   return (
     <section className='formContainer'>
-      <h1 className='formTitle'>Create An Account</h1>
+      <h9 className='formTitle'>Create An Account</h9>
 
       <div className='signupForm'>
         <form onSubmit={handleSignUp}>
@@ -122,17 +122,18 @@ const SignUp = () => {
             <label htmlFor='phoneNumber'>Phone Number</label>
             <input name='phoneNumber' type='tel' id='phoneNumber' />
             <label htmlFor='image'>image</label>
-
+            <div className="avatarUpload">
             <input className='image' type='file' onChange={handleImage} />
-            <button onClick={handleUpload} className='button1'>
+            <button onClick={handleUpload} className=' Button'>
               Upload
             </button>
-            <input type='submit' className='button signUpButton' />
+            </div>
+            <input type='submit' className='button signUpButton Button' />
           </section>
-
-          <div className='signUp'>
+          <hr className="mt-0 mb-4" />
+          <div className='login'>
             <p> Already have an account?</p>
-            <a href='/login' className='button1'>
+            <a href='/login' className=' Button loginButton1'>
               Login
             </a>
           </div>

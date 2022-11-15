@@ -99,6 +99,19 @@ nav #user-menu {
 }
 .button1 {
   margin-right: 25px;
+  border: solid white 2px;
+  border-color: white;
+  background-color: #35244B;
+  color: white;
+  font-family: Comfortaa Bold;
+  font-size: 1.1em;
+  border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  width: 5.8em;
+  height: 0.9em;
+  align-items: center;
+  padding: .4em;
 }
 
 .dropdownButton {

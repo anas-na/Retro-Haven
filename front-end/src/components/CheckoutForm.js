@@ -101,11 +101,8 @@ export default function CheckoutForm(props) {
    
       <section className="checkoutContainer">
         <h4 className="d-flex justify-content-between align-items-center mb-3"></h4>
-        <h6>Pay with card</h6>
+        <h>Pay with card</h>
         <form onSubmit={handleSubmit}>
-          <h1>Send Message To Seller</h1>
-          
-        <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
         <div className="paymentForm">
           <div className="row">
             <label htmlFor="cc-name">Name on card</label>
@@ -149,7 +146,7 @@ export default function CheckoutForm(props) {
           </div>
           <hr className="mb-4" />
           <button
-            className="btn btn-dark w-100 button1"
+            className="btn btn-dark w-20 button1 Button p-1"
             type="submit"
             disabled={loading}
           >

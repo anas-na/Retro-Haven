@@ -27,13 +27,13 @@ const LogIn = () => {
   return (
     <section className="formContainer">
 
-      <h1 className="formTitle">Login</h1>
+      <h9 className="formTitle">LOGIN</h9>
 
       <div className="loginForm">
 
         <form onSubmit={handleLogIn}>
 
-          <h2>Please enter your email and password!</h2>
+          {/* <h2>Please enter your email and password!</h2> */}
           
           <div className="inputs">
             <label htmlFor="email">Email</label>
@@ -51,12 +51,12 @@ const LogIn = () => {
                 className="form-control form-control-lg"
               />
             
-          <input type="submit" className="button" />
+          <input type="submit" className="loginButton Button" />
           </div>
          
           <div className='signUp'>
             <p className='loginQuestion'>Don't have an account? </p>
-            <a href="/signup" className='button1'>
+            <a href="/signup" className='Button text-reset'>
               Sign Up
             </a>
       </div>

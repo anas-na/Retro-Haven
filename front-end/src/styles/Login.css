@@ -1,54 +1,57 @@
 .loginQuestion {
-  color: #fdf3eb;
+  color: black;
   margin-bottom: 0.3em;
   margin-top: 0;
   font-size: 1.2em;
 }
 
 h2 {
-  color: #fdf3eb;
+  color: Black;
   font-size: 1.3em;
   margin-bottom: 0;
   text-align: center;
   padding: 6px;
 }
 .loginForm {
-  height: 22.5em !important;
+  justify-content: center;
+  /* margin-left: 15rem; */
+  /* border: solid #35244b 0.2em; */
+  background-color: #FAF9F6;
+  width: 600px;
+  font-family: Comfortaa Bold;
+  border-radius: 25px;
+  border: solid #35244b 0.3em;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  
+  
 }
 
 .signUp {
   text-align: center;
   width: 100%;
-  padding-bottom: 1em;
+  /* padding-bottom: 1em; */
   margin: 0;
-  height: 4em;
+  /* height: 4em; */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: .5em;
-}
-
-.button1 {
-  border: solid white 2px;
-  border-color: white;
-  background-color: #35244B;
+  margin-left: 15px;
   color: white;
-  font-family: Comfortaa Bold;
-  font-size: 1.1em;
-  border-radius: 17px;
-  display: flex;
-  justify-content: center;
-  width: 5.8em;
-  height: 0.9em;
-  align-items: center;
-  padding: .4em;
+  
 }
 
-.loginButton:hover {
-  background-color: white;
-  color: #186e8b;
-  cursor: pointer;
+
+.loginButton {
+  align-self: center;
+  margin: 20px;
+  /* margin-top: 10px; */
+  margin-left: 35px;
 }
+
 
 .button1:hover {
   background-color: white;

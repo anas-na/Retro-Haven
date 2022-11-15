@@ -18,6 +18,7 @@ import {
   
   const ItemNew = () => {
   const user = useContext(UserContext);
+  console.log(user)
   let history = useHistory();
 
   const [image, setImage] = useState("");
@@ -85,8 +86,14 @@ import {
       
     };
     getCategories();
-    setItem({ ...item, listedby_id: user.uid })
   }, []);
+
+  useEffect(() => {
+
+    if (user && "uid" in user) {
+      setItem({ ...item, listedby_id: user.uid })
+    }
+  }, [user])
 
   const handleChange = (e) => {
     setItem({ ...item, [e.target.id]: e.target.value });
@@ -121,7 +128,7 @@ import {
       <h9 className="formTitle">List An Item</h9>
 
       <section className="newItemForm">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="itemNewForm">
           <div className="inputs">
             <label htmlFor="name">Name </label>
             <input
@@ -143,7 +150,7 @@ import {
 
             <label htmlFor="category">Category </label>
 
-            <select id="category_id" required onChange={handleCategory}>
+            <select id="category_id" required onChange={handleCategory} required>
               <option selected='selected'>
                 Select A Category
               </option>
@@ -171,7 +178,7 @@ import {
             <label htmlFor="photo">Photo </label>
             <input className="photo" type="file" onChange={handleImage}/>
 
-            <button onClick={handleUpload} className='button1'>Upload</button>
+            <button onClick={handleUpload} className='button1 '>Upload</button>
             
             </div>
           </div>

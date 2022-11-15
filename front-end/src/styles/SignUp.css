@@ -4,16 +4,42 @@
 }
 
 .signupForm {
-    width: 30em;
-    height: 10em;
+    width: 600px;
+    /* height: 700px; */
+    background-color: black;
+    justify-content: center;
+    border: solid #35244b 0.2em;
+  background-color: #FAF9F6;
+  font-family: Comfortaa Bold;
+  border-radius: 25px;
+  border: solid #35244b 0.3em;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
     
 }
 
 input#dateOfBirth {
-    width: 29em;
+    width: 100%;
 }
 
 .formContainer {
-    background-color: purple;
+    /* background-color: purple; */
+    height: 100vh;
 }
+
+.avatarUpload {
+    display: flex;
+    justify-content: center;
+
+}
+.login {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    height: 30px;
+    padding-bottom: 50px;
+}
+
 

@@ -5,7 +5,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "../util/apiURL";
-import GoogleMap from "./GoogleMap";
 import Calendar from "./Calendar";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
@@ -113,7 +112,6 @@ const ItemDetails = () => {
             </div>
             <div className="detailLine">
               <h6>Location:</h6> {item.location}
-              {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
             </div>
           </section>
         </div>        
@@ -180,57 +178,7 @@ const ItemDetails = () => {
       </div>
     );
   }
-  // return (
-    
-  //   <div className="detailContainer">
-  //     <div className="details">
-  //       <div className="itemOmg">
-  //         <h5>{item.name}</h5>
-  //         <img src={item.photo} className="descPhoto" />
-  //       </div>
-  //       <section className="descContainer">
-  //         <div className="detailLine">
-  //           <h6>Description: </h6> {item.description}
-  //         </div>
-  //         <div className="detailLine">
-  //           {" "}
-  //           <h6>Category:</h6> Special Occasion
-  //         </div>
-  //         <div className="detailLine">
-  //           <h6>Price:</h6> ${item.price}
-  //         </div>
-  //         <div className="detailLine">
-  //           <h6>Location:</h6> {item.location}
-  //           {/* <GoogleMap coordinates={coordinates} className="mapsContainer" /> */}
-  //         </div>
-  //       </section>
-  //     </div>
-  //     {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
-      
-  //     <div className="paymentContainer">
-  //       {/* <Calendar
-  //         startDate={startDate}
-  //         endDate={endDate}
-  //         setStartDate={setStartDate}
-  //         setEndDate={setEndDate}
-  //       />{" "} */}
-  //       {paymentCompleted ? (
-  //         successMessage()
-  //       ) : (
-  //         <Elements stripe={stripePromise}>
-  //           <CheckoutForm
-  //             totalPrice={totalPrice}
-  //             item={item}
-  //             item_id={id}
-  //             setPaymentCompleted={setPaymentCompleted}
-
-  //             className="paymentContainer"
-  //           />
-  //           </Elements>
-  //       )}
-  //     </div>
-  //   </div>
-  // );
+  
 };
 
 export default ItemDetails;
