@@ -1,10 +1,10 @@
 import { auth } from "../services/Firebase";
 import { useState, useEffect } from "react";
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
+  signOut
 } from "firebase/auth";
 import app from "../services/Firebase.js";
 import { useContext } from "react";
@@ -14,30 +14,35 @@ const useUser = () => {
   const user = useContext(UserContext);
 
   const signUpFireBase = async (email, password, displayName) => {
-    const res = await createUserWithEmailAndPassword(auth, email, password, displayName);
+    const res = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+      displayName
+    );
     return res;
   };
 
   const logIn = (email, password) => {
     const res = signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(userCredential => {
         console.log(`User ${user} is logged in`);
       })
-      .catch((error) => {
+      .catch(error => {
         const message = error.message;
         console.log(`FireBase LogIn error: ${message}`);
       });
     console.log(res);
     return res;
   };
-  let history = useHistory()
+  let history = useHistory();
   const logOut = () => {
     signOut(auth)
       .then(() => {
         alert("you have logged out");
-        history.push('/')
+        history.push("/");
       })
-      .catch((error) => {
+      .catch(error => {
         const message = error.message;
         console.log(`Firebase logout error: ${message}`);
       });
@@ -47,7 +52,7 @@ const useUser = () => {
     user,
     signUpFireBase,
     logIn,
-    logOut,
+    logOut
   };
 };
 

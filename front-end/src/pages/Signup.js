@@ -12,7 +12,7 @@ import {
   getStorage,
   ref,
   uploadBytesResumable,
-  getDownloadURL,
+  getDownloadURL
 } from "firebase/storage";
 const API = apiURL();
 
@@ -23,7 +23,7 @@ const SignUp = () => {
   const [image, setImage] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
-  const handleSignUp = async (event) => {
+  const handleSignUp = async event => {
     event.preventDefault();
 
     let {
@@ -34,7 +34,7 @@ const SignUp = () => {
       address,
       email,
       password,
-      image,
+      image
     } = event.target.elements;
 
     const body = {
@@ -45,7 +45,7 @@ const SignUp = () => {
       address: address.value,
       email: email.value,
       password: password.value,
-      image: imageAsUrl,
+      image: imageAsUrl
     };
     try {
       const res = await signUpFireBase(email.value, password.value);
@@ -58,82 +58,82 @@ const SignUp = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to="/" />;
   }
-  const handleUpload = (event) => {
+  const handleUpload = event => {
     event.preventDefault();
     const storage = getStorage();
     const storageRef = ref(storage, "users/" + image.name);
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
       "state_changed",
-      (snapShot) => {
+      snapShot => {
         console.log(snapShot);
       },
-      (err) => {
+      err => {
         console.log(err);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
           console.log("File available at", downloadURL);
           setImageAsUrl(downloadURL);
         });
       }
     );
   };
-  const imagePlaceHolder = (img) => {
+  const imagePlaceHolder = img => {
     if (imageAsUrl === "") {
-      return <div></div>;
+      return <div />;
     } else {
-      return <img src={imageAsUrl} alt='newItemImg' />;
+      return <img src={imageAsUrl} alt="newItemImg" />;
     }
   };
 
-  const handleImage = (event) => {
+  const handleImage = event => {
     const img = event.target.files[0];
-    setImage((image) => img);
+    setImage(image => img);
   };
 
   return (
-    <section className='formContainer'>
-      <h4 className='formTitle'>Create An Account</h4>
+    <section className="formContainer">
+      <h4 className="formTitle">Create An Account</h4>
 
-      <div className='signupForm'>
+      <div className="signupForm">
         <form onSubmit={handleSignUp}>
-          <section className='inputs'>
-            <label htmlFor='firstName'>First Name</label>
-            <input name='firstName' type='text' id='firstName' />
+          <section className="inputs">
+            <label htmlFor="firstName">First Name</label>
+            <input name="firstName" type="text" id="firstName" />
 
-            <label htmlFor='lastName'>Last Name</label>
-            <input name='lastName' type='text' id='lastName' />
+            <label htmlFor="lastName">Last Name</label>
+            <input name="lastName" type="text" id="lastName" />
 
-            <label htmlFor='email'>Your Email</label>
-            <input name='email ' type='email' id='email' />
+            <label htmlFor="email">Your Email</label>
+            <input name="email " type="email" id="email" />
 
-            <label htmlFor='password'>Password</label>
-            <input name='password' type='password' id='password' />
+            <label htmlFor="password">Password</label>
+            <input name="password" type="password" id="password" />
 
-            <label htmlFor='address'>Address</label>
-            <input name='address' type='address' id='address' />
+            <label htmlFor="address">Address</label>
+            <input name="address" type="address" id="address" />
 
-            <label htmlFor='dateOfBirth'>Date Of Birth</label>
-            <input name='dateOfBirth' type='date' id='dateOfBirth' />
+            <label htmlFor="dateOfBirth">Date Of Birth</label>
+            <input name="dateOfBirth" type="date" id="dateOfBirth" />
 
-            <label htmlFor='phoneNumber'>Phone Number</label>
-            <input name='phoneNumber' type='tel' id='phoneNumber' />
-            <label htmlFor='image'>image</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <input name="phoneNumber" type="tel" id="phoneNumber" />
+            <label htmlFor="image">image</label>
             <div className="avatarUpload">
-            <input className='image' type='file' onChange={handleImage} />
-            <button onClick={handleUpload} className=' Button'>
-              Upload
-            </button>
+              <input className="image" type="file" onChange={handleImage} />
+              <button onClick={handleUpload} className=" Button">
+                Upload
+              </button>
             </div>
-            <input type='submit' className='button signUpButton Button' />
+            <input type="submit" className="button signUpButton Button" />
           </section>
           <hr className="mt-0 mb-4" />
-          <div className='login'>
+          <div className="login">
             <p> Already have an account?</p>
-            <a href='/login' className=' Button loginButton1'>
+            <a href="/login" className=" Button loginButton1">
               Login
             </a>
           </div>

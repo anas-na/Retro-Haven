@@ -151,7 +151,7 @@ import {
             <label htmlFor="category">Category </label>
 
             <select id="category_id" required onChange={handleCategory}>
-              <option selected='selected'>
+              <option >
                 Select A Category
               </option>
               {options}

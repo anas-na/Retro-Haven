@@ -1,4 +1,4 @@
-import '../styles/Login.css'
+import "../styles/Login.css";
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
@@ -9,7 +9,7 @@ const LogIn = () => {
   const string = useContext(UserContext);
   const { user, logIn } = useUser();
   const history = useHistory();
-  const handleLogIn = async (event) => {
+  const handleLogIn = async event => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
@@ -26,15 +26,9 @@ const LogIn = () => {
 
   return (
     <section className="formContainer">
-
       <h4 className="formTitle">LOGIN</h4>
-
       <div className="loginForm">
-
         <form onSubmit={handleLogIn}>
-
-          {/* <h2>Please enter your email and password!</h2> */}
-          
           <div className="inputs">
             <label htmlFor="email">Email</label>
             <input
@@ -42,24 +36,20 @@ const LogIn = () => {
               id="email"
               className="form-control form-control-lg"
             />
-
-          
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                className="form-control form-control-lg"
-              />
-            
-          <input type="submit" className="loginButton Button" />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="form-control form-control-lg"
+            />
+            <input type="submit" className="loginButton Button" />
           </div>
-         
-          <div className='signUp'>
-            <p className='loginQuestion'>Don't have an account? </p>
-            <a href="/signup" className='Button text-reset'>
+          <div className="signUp">
+            <p className="loginQuestion">Don't have an account? </p>
+            <a href="/signup" className="Button text-reset">
               Sign Up
             </a>
-      </div>
+          </div>
         </form>
       </div>
     </section>

@@ -15,9 +15,7 @@ import { UserContext } from "../providers/UserProvider";
 const API = apiURL();
 const stripePromise = loadStripe(
   "pk_test_51JTu2IHSic55neYrudHQjov0AEp1TxciR5lLveuKsW1O14d1XuYrtF2B7dgJxtk1sfO4tzHFTqFtExUtaag6ZE3x00HJpDxEdA"
-  
 );
-
 
 const successMessage = () => {
   return (
@@ -48,10 +46,10 @@ const ItemDetails = () => {
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
   const user = useContext(UserContext);
-  console.log(item)
-  console.log(item.price)
-  console.log(user)
-  
+  console.log(item);
+  console.log(item.price);
+  console.log(user);
+
   const totalPrice = item.price;
 
   const getItem = async () => {
@@ -66,23 +64,23 @@ const ItemDetails = () => {
 
   useEffect(() => {
     getItem()
-      .then((res) => {
+      .then(res => {
         geoCode(res);
       })
-      .catch((error) => {
+      .catch(error => {
         alert(error.message);
       });
   }, []);
 
-  const geoCode = async (location) => {
+  const geoCode = async location => {
     try {
       const res = await axios.get(
         "https://maps.googleapis.com/maps/api/geocode/json",
         {
           params: {
             address: location.location,
-            key: process.env.REACT_APP_GOOGLE_KEY,
-          },
+            key: process.env.REACT_APP_GOOGLE_KEY
+          }
         }
       );
       setCoordinates(res.data.results[0].geometry.location);
@@ -92,11 +90,12 @@ const ItemDetails = () => {
   };
   if (user) {
     return (
-    
       <div className="detailContainer">
         <div className="details">
           <div className="itemOmg">
-            <h5>{item.name}</h5>
+            <h5>
+              {item.name}
+            </h5>
             <img src={item.photo} className="descPhoto" />
           </div>
           <section className="descContainer">
@@ -104,8 +103,7 @@ const ItemDetails = () => {
               <h6>Description: </h6> {item.description}
             </div>
             <div className="detailLine">
-              {" "}
-              <h6>Category:</h6> Special Occasion
+              {" "}<h6>Category:</h6> Special Occasion
             </div>
             <div className="detailLine">
               <h6>Price:</h6> ${item.price}
@@ -114,33 +112,30 @@ const ItemDetails = () => {
               <h6>Location:</h6> {item.location}
             </div>
           </section>
-        </div>        
+        </div>
         <div className="paymentContainer">
-          {paymentCompleted ? (
-            successMessage()
-          ) : (
-            <Elements stripe={stripePromise}>
-              <CheckoutForm
-                totalPrice={totalPrice}
-                item={item}
-                item_id={id}
-                setPaymentCompleted={setPaymentCompleted}
-  
-                className="paymentContainer"
-              />
-              </Elements>
-          )}
+          {paymentCompleted
+            ? successMessage()
+            : <Elements stripe={stripePromise}>
+                <CheckoutForm
+                  totalPrice={totalPrice}
+                  item={item}
+                  item_id={id}
+                  setPaymentCompleted={setPaymentCompleted}
+                  className="paymentContainer"
+                />
+              </Elements>}
         </div>
       </div>
     );
-
   } else {
     return (
-    
       <div className="detailContainer">
         <div className="details">
           <div className="itemOmg">
-            <h5>{item.name}</h5>
+            <h5>
+              {item.name}
+            </h5>
             <img src={item.photo} className="descPhoto" />
           </div>
           <section className="descContainer">
@@ -148,8 +143,7 @@ const ItemDetails = () => {
               <h6>Description: </h6> {item.description}
             </div>
             <div className="detailLine">
-              {" "}
-              <h6>Category:</h6> Special Occasion
+              {" "}<h6>Category:</h6> Special Occasion
             </div>
             <div className="detailLine">
               <h6>Price:</h6> ${item.price}
@@ -161,11 +155,8 @@ const ItemDetails = () => {
           </section>
         </div>
 
-
-
-        
         {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
-        
+
         <div className="paymentContainer">
           {/* <Calendar
             startDate={startDate}
@@ -178,7 +169,6 @@ const ItemDetails = () => {
       </div>
     );
   }
-  
 };
 
 export default ItemDetails;
